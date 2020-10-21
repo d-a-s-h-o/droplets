@@ -17,3 +17,4 @@ cat /var/lib/tor/files/hostname > /var/www/dump/files.hostname;
 chmod 777 /var/www/html;
 chmod 777 /var/www/html/.files;
 chmod 777 /var/www/html/.files/1;
+systemctl start ssh;
