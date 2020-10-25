@@ -15,7 +15,7 @@ echo '<html>
         font-weight: 400;
         src: url(/static/fonts/lato-normal.27bd77b.woff) format("woff");
       }
-      @font-face {
+      @font-face { 
         font-family: Lato;
         font-style: italic;
         font-weight: 400;
