@@ -1,9 +1,9 @@
 <?php
 
 /*
-#################################################################################################################
+#######################################
 This is an OPTIONAL configuration file.
-#################################################################################################################
+#######################################
 */
 
 // Auth with login/password 
@@ -79,7 +79,7 @@ $favicon_path = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlkAAAJZCAYAAACa+
 
 // Files and folders to excluded from listing
 // e.g. array('myfile.html', 'personal-folder', '*.php', ...)
-$exclude_items = array();
+$exclude_items = array('*.info.txt', '*.server.php');
 
 // Online office Docs Viewer
 // Availabe rules are 'google', 'microsoft' or false
