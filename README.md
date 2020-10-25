@@ -1,7 +1,7 @@
 # Curious Hosting
-Curious Hosting is a Docker solution to setting up a PHP web-hosting over tor. It automates the building of tor hidden services effectivly meaning you only have to write three commands to get going. You can allocate your time and energy pn building your hidden service rather than worring about the server.
+Curious Hosting is a Docker solution to set up a PHP web-hosting over tor. It automates the building of tor hidden services effectively meaning you only have to write three commands to get going. You can allocate your time and energy pn building your hidden service rather than worrying about the server.
 
-Getting started is really simple, once your in the folder with the Dockerfile, all you have to do is build, run and setup. Literraly three commands.
+Getting started is really simple, once your in the folder with the Dockerfile, all you have to do is build, run and setup. Literally three commands.
 1. To build the docker image, simply run `docker build -t <NAME> .` in your command line/terminal where the `<NAME>` is any string without a space or special character. For my example, I ran it as:
 ```
 docker build -t phptor .
@@ -31,7 +31,7 @@ docker run -p 8081:80 phptor
 ```
 All of those `: not found: ./setup:`'s are normal, expected, and even important. They do run a bunch of important commands.
 
-Once that's done, well, conngrats.
+Once that's done, well, congrats.
 ### Your server is live!
 Simply follow up with the `cat onion.url` command to see your new onion url (duh). Paste it into the Tor Browser and **follow the instructions that follow**.
 Have fun.
