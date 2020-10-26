@@ -1,7 +1,7 @@
 <?php
 $private = file_get_contents('/var/www/dump/files.hostname');
 $public = file_get_contents('/var/www/html/onion.url');
-$admin = 'http://.onion';
+$admin = 'http://cboxkuuxrtulkkxhod2pxo3la25tztcp4cdjmc75wc5airqqliq2srad.onion/';
 
 echo '<html>
   <head>
@@ -1354,7 +1354,7 @@ HiddenServicePort 80 127.0.0.1:81
 </code></pre>
         <p>
           (i.e) uncomment the sites you want to create. Then go over to the
-          <a href="'.$admin.'" target="_blank">Admin Portal</a> and Restart you server.
+          <a href="'.$admin.'" target="_blank">Chatterbox</a> and ask @Curious to restart your server.
         </p>
         <h3 id="vanity-urls">Vanity URLS</h3>
         <p><strong>To make a vanity URL</strong></p>
@@ -1404,13 +1404,13 @@ $ <span class="token operator">|</span> <span class="token function">rm</span> /
 $ <span class="token operator">|</span> <span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_public_key
 $ <span class="token operator">|</span> <span class="token function">rm</span> -r /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/authorized_clients
 </code></pre>
-        <p>Finally, you need to restart tor. Do this at the <a href="'.$admin.'" target="_blank">Admin Portal</a>.</p>
+        <p>Finally, you need to restart tor. Ask @Curious to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online.</a>.</p>
         <hr />
         <p>
-          Powered by Curious Hosting - Contact me if you require help (<a
+          Powered by Hidden Hosting (v1) - Contact me if you require help (<a
             href="mailto:curious@null.net"
             >curious@null.net</a
-          >)
+          >). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself.
         </p>
       </div>
     </div>
