@@ -8,7 +8,7 @@ echo '<html>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Server Hosting Information</title>
-    <link rel="shortcut icon" type="image/png" href="'.$private.'/Curious2Hosting.png" id="favicon" />
+    <link rel="shortcut icon" type="image/png" href="http://'.$private.'/host.png" id="favicon" />
     <style type="text/css">
       @font-face {
         font-family: Lato;
