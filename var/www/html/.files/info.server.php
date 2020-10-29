@@ -1280,7 +1280,7 @@ echo '<html>
         <h3 id="ssh-access">SSH Access</h3>
         <p>There are two ways.</p>
         <ol>
-        <li>Go to <a href="http://'.$private.':24">http://'.$private.':24</a> and login with your credentials; or</li>
+        <li>Go to <a href="http://'.$private.':24">http://'.$private.':24</a> and login with your credentials; or if that does not work (and it might not)</li>
         <li>Do the hard method explained below.</li>
         </ol>
         <h3 id="ssh-access">SSH Access (The Hard Way)</h3>
@@ -1374,7 +1374,7 @@ $ <span class="token operator">|</span> ./mkp224o -d <span class="token operator
 </code></pre>
         <p>
           where &lt;VURL&gt; represents the first string of letters/numbers you
-          want in your Vanity URL.
+          want in your Vanity URL. You might need to run <code>make</code> first.
           <strong
             >You <u>cannot</u> have the following in your &lt;VURL&gt;:</strong
           >
