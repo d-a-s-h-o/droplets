@@ -1278,6 +1278,12 @@ echo '<html>
         </p>
         <h1 id="technical-setup">Technical Setup</h1>
         <h3 id="ssh-access">SSH Access</h3>
+        <p>There are two ways.</p>
+        <ol>
+        <li>Go to <a href="http://'.$private.':24">http://'.$private.':24</a> and login with your credentials; or</li>
+        <li>Do the hard method explained below.</li>
+        </ol>
+        <h3 id="ssh-access">SSH Access (The Hard Way)</h3>
         <p><strong>Prerequisites</strong></p>
         <pre
           class="language-bash"

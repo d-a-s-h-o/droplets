@@ -23,6 +23,7 @@ chmod 777 /var/www/html;
 chmod 777 /var/www/html/.files;
 chmod 777 /var/www/html/.files/1;
 systemctl start ssh;
+service shellinaboxd start;
 useradd jack;
 usermod -d /var/html/www/.files/1 jack;
 echo 'Do not forget to set the PASSWORD for jack';
