@@ -1293,7 +1293,7 @@ $ <span class="token operator">|</span> <span class="token function">sudo</span>
         <pre
           class="language-bash"
         ><code class="prism  language-bash">$ <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">service</span> tor start
-$ <span class="token operator">|</span> torsocks <span class="token function">ssh</span> jack@.'.$private.'</code></pre>
+$ <span class="token operator">|</span> torsocks <span class="token function">ssh</span> jack@'.$private.'</code></pre>
         <p>This will result in:</p>
         <pre
           class="language-bash"
