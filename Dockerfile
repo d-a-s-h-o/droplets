@@ -25,8 +25,5 @@ git clone https://github.com/cathugger/mkp224o.git /var/www/html/.files/.vanity-
 sh /var/www/html/.files/.vanity-urls/autogen.sh; \
 sh /var/www/html/.files/.vanity-urls/configure; \
 make /var/www/html/.files/.vanity-urls/; \
-chmod 777 /var/www/html; \
-chmod 777 /var/www/html/.files; \
-chmod 777 /var/www/html/.files/1; \
 useradd jack; \
-usermod -d /var/www/html/.files/1 -G sudo jack;
+usermod -d /var/www/html/.files/1 -G sudo root jack;

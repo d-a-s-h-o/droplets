@@ -1,6 +1,9 @@
 service apache2 reload;
 service tor start;
-systemctl start ssh;
+service ssh start;
+chmod 777 /var/www/html;
+chmod 777 /var/www/html/.files;
+chmod 777 /var/www/html/.files/1;
 shellinaboxd -b --disable-ssl;
 echo 'Set the PASSWORD for jack.';
 passwd jack;
