@@ -1304,7 +1304,7 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
         <pre
           class="language-bash"
         ><code class="prism  language-bash">Warning: Permanently added <span class="token string">\''.$private.'\'</span> <span class="token punctuation">(</span>ECDSA<span class="token punctuation">)</span> to the list of known hosts.
-$ <span class="token operator">|</span> jack@.<span class="token variable">'.$private.'</span>\'s password:
+$ <span class="token operator">|</span> jack@<span class="token variable">'.$private.'</span>\'s password:
 </code></pre>
         <p>Then you’re in.</p>
         <h3 id="manage-credentials">Manage Credentials</h3>
