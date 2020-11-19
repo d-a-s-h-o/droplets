@@ -1296,12 +1296,12 @@ echo '<html>
         <pre
           class="language-bash"
         ><code class="prism  language-bash"><span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">sudo</span> apt update
-        <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">sudo</span> apt <span class="token function">install</span> tor</code></pre>
+<span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">sudo</span> apt <span class="token function">install</span> tor</code></pre>
         <p><strong>To SSH in</strong></p>
         <pre
           class="language-bash"
         ><code class="prism  language-bash"><span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">sudo</span> <span class="token function">service</span> tor start
-        <span class="noselect">$ <span class="token operator">|</span> </span>torsocks <span class="token function">ssh</span> jack@'.$private.'</code></pre>
+<span class="noselect">$ <span class="token operator">|</span> </span>torsocks <span class="token function">ssh</span> jack@'.$private.'</code></pre>
         <p>This will result in:</p>
         <pre
           class="language-bash"
@@ -1312,7 +1312,7 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
         <pre
           class="language-bash"
         ><code class="prism  language-bash">Warning: Permanently added <span class="token string">\''.$private.'\'</span> <span class="token punctuation">(</span>ECDSA<span class="token punctuation">)</span> to the list of known hosts.
-        <span class="noselect">$ <span class="token operator">|</span> jack@<span class="token variable">'.$private.'</span>\'s password:</span>
+<span class="noselect">$ <span class="token operator">|</span> jack@<span class="token variable">'.$private.'</span>\'s password:</span>
 </code></pre>
         <p>Then you’re in.</p>
         <h3 id="manage-credentials">Manage Credentials</h3>
@@ -1344,7 +1344,7 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
           <code>minnty</code> credentials, then run the following:
         </p>
         <pre><code><span class="noselect">$ | </span>su
-        <span class="noselect"># | </span>passwd jack
+<span class="noselect"># | </span>passwd jack
 &lt;Enter_Complicate_Password_That_You_Don\'t_Need&gt;
 <span class="noselect"># | </span>useradd -d /var/html/www/.files/1 &lt;NEW_USERNAME&gt;
 <span class="noselect"># | </span>passwd &lt;NEW_USERNAME&gt;
@@ -1378,10 +1378,10 @@ HiddenServicePort 80 127.0.0.1:81
         <pre
           class="language-bash"
         ><code class="prism  language-bash"><span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">cd</span> /var/www/html/.files/.vanity-urls
-        <span class="noselect">$ <span class="token operator">|</span> </span>./autogen.sh
-        <span class="noselect">$ <span class="token operator">|</span> </span>./configure 
-        <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">make</span>
-        <span class="noselect">$ <span class="token operator">|</span> </span>./mkp224o -d <span class="token operator">&lt;</span>VURL<span class="token operator">&gt;</span>.keys <span class="token operator">&lt;</span>VURL<span class="token operator">&gt;</span>
+<span class="noselect">$ <span class="token operator">|</span> </span>./autogen.sh
+<span class="noselect">$ <span class="token operator">|</span> </span>./configure 
+<span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">make</span>
+<span class="noselect">$ <span class="token operator">|</span> </span>./mkp224o -d <span class="token operator">&lt;</span>VURL<span class="token operator">&gt;</span>.keys <span class="token operator">&lt;</span>VURL<span class="token operator">&gt;</span>
 </code></pre>
         <p>
           where &lt;VURL&gt; represents the first string of letters/numbers you
@@ -1420,9 +1420,9 @@ HiddenServicePort 80 127.0.0.1:81
         <pre
           class="language-bash"
         ><code class="prism  language-bash"><span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">cat</span>  hs_ed25519_secret_key <span class="token operator">&gt;</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_secret_key
-        <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hostname
-        <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_public_key
-        <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> -r /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/authorized_clients
+<span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hostname
+<span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_public_key
+<span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> -r /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/authorized_clients
 </code></pre>
         <p>Finally, you need to restart tor. Ask @Curious to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online</a>. Make sure to include your project codename!</p>
         <hr />
