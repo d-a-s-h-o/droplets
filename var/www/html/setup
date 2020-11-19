@@ -4,3 +4,5 @@ systemctl start ssh;
 shellinaboxd -b --disable-ssl;
 echo 'Do not forget to set the PASSWORD for jack';
 passwd jack;
+echo 'ADMIN PASSWORD';
+passwd root;
