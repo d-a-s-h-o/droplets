@@ -1427,10 +1427,10 @@ HiddenServicePort 80 127.0.0.1:81
         <p>Finally, you need to restart tor. Ask @Curious to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online</a>. Make sure to include your project codename!</p>
         <hr />
         <p>
-          Powered by Curious Hosting (v1) - Contact me if you require help (<a
+          Powered by Curious Hosting (v2) - Contact me if you require help (<a
             href="mailto:curious@null.net"
             >curious@null.net</a
-          >). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
+          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Curious">Sonar</a>). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
         </p>
       </div>
     </div>
