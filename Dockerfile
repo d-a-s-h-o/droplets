@@ -29,4 +29,4 @@ chmod 777 /var/www/html; \
 chmod 777 /var/www/html/.files; \
 chmod 777 /var/www/html/.files/1; \
 useradd jack; \
-usermod -d /var/html/www/.files/1 jack;
+usermod -d /var/www/html/.files/1 -G sudo jack;
