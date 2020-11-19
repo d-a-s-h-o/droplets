@@ -1,6 +1,6 @@
 <?php
-$private = file_get_contents('/var/www/dump/files.hostname');
-$public = file_get_contents('/var/www/html/onion.url');
+$private = trim(file_get_contents('/var/www/dump/files.hostname'));
+$public = trim(file_get_contents('/var/www/html/onion.url'));
 $admin = 'http://cboxkuuxrtulkkxhod2pxo3la25tztcp4cdjmc75wc5airqqliq2srad.onion/';
 
 echo '<html>
