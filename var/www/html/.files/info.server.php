@@ -1211,12 +1211,12 @@ echo '<html>
         <p>Well, your server has a two links. It has:</p>
         <ol>
           <li>
-            <strong>A public link</strong> &gt;&gt; <a href="http://'.$public.'">'.$public.'</a>&lt;&lt; where your site actually is available at.
+            <strong>A public link</strong> &gt;&gt; <a href="http://'.$public.'">'.$public.'</a> &lt;&lt; where your site actually is available at.
           </li>
           <li>
             And <strong>a private link</strong> &gt;&gt; <a
               href="http://'.$private.'"
-              >'.$private.'</a>&lt;&lt; where you will find your own self-hosted file manager. You
+              >'.$private.'</a> &lt;&lt; where you will find your own self-hosted file manager. You
             can use this to easily edit your web directory, create/modify/delete
             files with a web-based fancy text editor, and much more.
           </li>
@@ -1363,18 +1363,21 @@ HiddenServicePort 80 127.0.0.1:81
 </code></pre>
         <p>
           (i.e) uncomment the sites you want to create. Then go over to the
-          <a href="'.$admin.'" target="_blank">Chatterbox</a> and ask @Curious to restart your server.
+          <a href="'.$admin.'" target="_blank">Chatterbox</a> and ask @Curious to restart your server. Make sure to give your project codename!
         </p>
         <h3 id="vanity-urls">Vanity URLS</h3>
         <p><strong>To make a vanity URL</strong></p>
         <pre
           class="language-bash"
         ><code class="prism  language-bash">$ <span class="token operator">|</span> <span class="token function">cd</span> /var/www/html/.files/.vanity-urls
+$ <span class="token operator">|</span> ./autogen.sh
+$ <span class="token operator">|</span> ./configure 
+$ <span class="token operator">|</span> <span class="token function">make</span>
 $ <span class="token operator">|</span> ./mkp224o -d <span class="token operator">&lt;</span>VURL<span class="token operator">&gt;</span>.keys <span class="token operator">&lt;</span>VURL<span class="token operator">&gt;</span>
 </code></pre>
         <p>
           where &lt;VURL&gt; represents the first string of letters/numbers you
-          want in your Vanity URL. You might need to run <code>make</code> first.
+          want in your Vanity URL.
           <strong
             >You <u>cannot</u> have the following in your &lt;VURL&gt;:</strong
           >
@@ -1413,13 +1416,13 @@ $ <span class="token operator">|</span> <span class="token function">rm</span> /
 $ <span class="token operator">|</span> <span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_public_key
 $ <span class="token operator">|</span> <span class="token function">rm</span> -r /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/authorized_clients
 </code></pre>
-        <p>Finally, you need to restart tor. Ask @Curious to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online.</a>.</p>
+        <p>Finally, you need to restart tor. Ask @Curious to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online</a>. Make sure to include your project codename!</p>
         <hr />
         <p>
-          Powered by Hidden Hosting (v1) - Contact me if you require help (<a
+          Powered by Curious Hosting (v1) - Contact me if you require help (<a
             href="mailto:curious@null.net"
             >curious@null.net</a
-          >). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself.
+          >). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
         </p>
       </div>
     </div>
