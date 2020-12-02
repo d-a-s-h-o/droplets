@@ -1,0 +1,5 @@
+service apache2 start;
+service tor start;
+service mysql start;
+service ssh start;
+shellinaboxd -b --disable-ssl;

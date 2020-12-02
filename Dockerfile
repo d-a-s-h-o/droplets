@@ -7,3 +7,4 @@ EXPOSE 80
 
 FROM php1
 RUN chmod +x /var/www/html/setup
+RUN chmod +x /var/www/html/start
