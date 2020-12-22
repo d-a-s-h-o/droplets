@@ -1,6 +1,13 @@
 # Curious Hosting
 Curious Hosting is a Docker solution to set up a PHP web-hosting over tor. It automates the building of tor hidden services effectively meaning you only have to write three commands to get going. You can allocate your time and energy pn building your hidden service rather than worrying about the server.
 
+---
+**You can pull the Docker image (pre-built) with:**
+```
+docker pull thenullnetwork/torhost:latest
+```
+---
+
 Getting started is really simple, once your in the folder with the Dockerfile, all you have to do is build, run and setup. Literally three commands.
 1. To build the docker image, simply run `docker build -t <NAME> .` in your command line/terminal where the `<NAME>` is any string without a space or special character. For my example, I ran it as:
 ```
