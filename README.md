@@ -1,5 +1,5 @@
-# Curious Hosting
-Curious Hosting is a Docker solution to set up a PHP web-hosting over tor. It automates the building of tor hidden services effectively meaning you only have to write three commands to get going. You can allocate your time and energy pn building your hidden service rather than worrying about the server.
+# Dashed Hosting
+Dashed Hosting is a Docker solution to set up a PHP web-hosting over tor. It automates the building of tor hidden services effectively meaning you only have to write three commands to get going. You can allocate your time and energy pn building your hidden service rather than worrying about the server.
 
 ---
 **You can pull the Docker image (pre-built) with:**

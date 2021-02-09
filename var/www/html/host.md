@@ -1,5 +1,5 @@
 # Curious Hosting
-Hello there. This site is hosted by Curious Hosting - By @Curious.
+Hello there. This site is hosted by Dashed Hosting - By @Dasho.
 
 It is part of the DNK Project.
 

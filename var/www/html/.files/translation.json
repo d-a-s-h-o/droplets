@@ -1,5 +1,5 @@
 {
-  "appName": "Curious Hosting",
+  "appName": "Dashed Hosting",
   "version": "2.0",
   "language": [
     {
@@ -80,7 +80,7 @@
       "name": "русский",
       "code": "ru",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Файловый менеджер",
         "Login": "Войти",
         "Username": "Пользователь",
@@ -139,7 +139,7 @@
       "name": "Italiano",
       "code": "it",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "File Manager",
         "Login": "Connettiti",
         "Username": "Username",
@@ -200,7 +200,7 @@
       "name": "Français",
       "code": "fr",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "File Manager",
         "Login": "Connexion",
         "Username": "Utilisateur",
@@ -259,7 +259,7 @@
       "name": "Español",
       "code": "es",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Administrador de Archivos",
         "Login": "Iniciar Sesión",
         "Username": "Nombre de Usuario",
@@ -316,7 +316,7 @@
       "name": "Català",
       "code": "ca",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Administrador d'Arxius",
         "Login": "Iniciar Sessió",
         "Username": "Nom d'Usuari",
@@ -374,7 +374,7 @@
       "name": "Deutsch",
       "code": "de",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Datei Manager",
         "Login": "Einloggen",
         "Username": "Benutzername",
@@ -431,7 +431,7 @@
       "name": "ภาษาไทย",
       "code": "th",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "ตัวจัดการไฟล์",
         "Login": "เข้าสู่ระบบ",
         "Username": "ชื่อผู้ใช้งาน",
@@ -488,7 +488,7 @@
       "name": "简体中文",
       "code": "zh-CN",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "文件管理器",
         "Login": "登录",
         "Username": "账号",
@@ -567,7 +567,7 @@
       "name": "中文(繁體)",
       "code": "zh-TW",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "檔案管理器",
         "Login": "登入",
         "Username": "帳號",
@@ -631,7 +631,7 @@
       "name": "Bahasa Indonesia",
       "code": "id",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Pengelola File",
         "Login": "Masuk",
         "Username": "Nama pengguna",
@@ -690,7 +690,7 @@
       "name": "Ελληνικά",
       "code": "gr",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "File Manager",
         "Login": "Είσοδος",
         "Username": "Username",
@@ -749,7 +749,7 @@
       "name": "Português",
       "code": "pt",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Gerenciador de arquivos",
         "Login": "Iniciar Sessão",
         "Username": "Nome de usuário",
@@ -829,7 +829,7 @@
       "name": "Polski",
       "code": "pl",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Menedżer plików",
         "Login": "Login",
         "Username": "Nazwa Użytkownika",
@@ -886,7 +886,7 @@
       "name": "Việt Nam",
       "code": "vi",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "Trình quản lí",
         "Login": "Đăng nhập",
         "Username": "Tên đăng nhập",
@@ -944,7 +944,7 @@
       "name": "Hebrew",
       "code": "he",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "סייר קבצים",
         "Login": "התחבר",
         "Username": "שם משתמש",
@@ -1003,7 +1003,7 @@
       "name": "العربية",
       "code": "Ar",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "مدير الملفات",
         "Login": "دخول",
         "Username": "اسم المستخدم",
@@ -1073,7 +1073,7 @@
       "name": "Česky",
       "code": "cz",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "File Manager",
         "Login": "Přihlásit",
         "Username": "Přihlašovací jméno",
@@ -1212,7 +1212,7 @@
       "name": "Slovensky",
       "code": "sk",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "File Manager",
         "Login": "Prihlásiť sa",
         "Username": "Prihlasovacie meno",
@@ -1277,7 +1277,7 @@
       "name": "한국어",
       "code": "ko",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "파일 관리자",
         "Login": "로그인",
         "Username": "사용자명",
@@ -1334,7 +1334,7 @@
       "name": "日本語",
       "code": "ja",
       "translation": {
-        "AppName": "Curious Hosting",
+        "AppName": "Dashed Hosting",
         "AppTitle": "File Manager",
         "Login": "ログイン",
         "Username": "Username",

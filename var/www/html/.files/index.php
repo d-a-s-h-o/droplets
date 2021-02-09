@@ -6,7 +6,7 @@ $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":
 define('VERSION', '2.0');
 
 //Application Title
-define('APP_TITLE', 'Curious Hosting - Files');
+define('APP_TITLE', 'Dashed Hosting - Files');
 
 // --- EDIT BELOW CONFIGURATION CAREFULLY ---
 
@@ -1419,8 +1419,8 @@ if (isset($_GET['help'])) {
             <div class="card-body">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <p><h3><a href="mailto:curious@null.net" target="_blank" class="app-v-title">Curious</a></h3></p>
-                        <p>Author: Curious Hosting</p>
+                        <p><h3><a href="mailto:dasho@null.net" target="_blank" class="app-v-title">Dasho</a></h3></p>
+                        <p>Author: Dashed Hosting</p>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="card">
@@ -2032,7 +2032,7 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
             </ul>
         </div>
         <?php else: ?>
-            <div class="col-12"><a href="mailto:curious@null.net" target="_blank" class="float-right text-muted">Curious Hosting</a></div>
+            <div class="col-12"><a href="mailto:dasho@null.net" target="_blank" class="float-right text-muted">Dashed Hosting</a></div>
         <?php endif; ?>
     </div>
 
@@ -3194,7 +3194,7 @@ class FM_Zipper_Tar
         if (strlen($CONFIG)) {
             $data = fm_object_to_array(json_decode($CONFIG));
         } else {
-            $msg = 'Curious Hosting | File Manager<br>Error: Cannot load configuration';
+            $msg = 'Dashed Hosting | File Manager<br>Error: Cannot load configuration';
             if (substr($fm_url, -1) == '/') {
                 $fm_url = rtrim($fm_url, '/');
                 $msg .= '<br>';
@@ -3352,7 +3352,7 @@ global $lang, $root_url, $favicon_path;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Web based file manager for Curious Hosting, Manage your files efficiently and easily with this file manager">
+    <meta name="description" content="Web based file manager for Dashed Hosting, Manage your files efficiently and easily with this file manager">
     <meta name="author" content="CCP Programmers">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex">
@@ -3424,7 +3424,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Web based file manager for Curious Hosting, Manage your files efficiently and easily with this file manager">
+    <meta name="description" content="Web based file manager for Dashed Hosting, Manage your files efficiently and easily with this file manager">
     <meta name="author" content="CCP Programmers">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex">
@@ -3955,7 +3955,7 @@ function lng($txt) {
     global $lang;
 
     // English Language
-    $tr['en']['AppName']        = 'Curious Hosting';           $tr['en']['AppTitle']           = 'Curious Hosting';
+    $tr['en']['AppName']        = 'Dashed Hosting';           $tr['en']['AppTitle']           = 'Dashed Hosting';
     $tr['en']['Login']          = 'Sign in';                $tr['en']['Username']           = 'Username';
     $tr['en']['Password']       = 'Password';               $tr['en']['Logout']             = 'Sign Out';
     $tr['en']['Move']           = 'Move';                   $tr['en']['Copy']               = 'Copy';

@@ -2,6 +2,8 @@
 $private = trim(file_get_contents('/var/www/dump/files.hostname'));
 $public = trim(file_get_contents('/var/www/html/onion.url'));
 $admin = 'http://cboxkuuxrtulkkxhod2pxo3la25tztcp4cdjmc75wc5airqqliq2srad.onion/';
+$hostname = gethostname(); 
+$dbpass = trim(file_get_contents('/var/www/.dbpass.txt'));
 
 echo '<html>
   <head>
@@ -1284,6 +1286,43 @@ echo '<html>
           up to you. My advice is do, just in case, but don’t if you’re just
           gonna mess up the server.
         </p>
+        <h1 id="database">Database</h1>
+<p>Your Database details are as follows:</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DBTYPE</td>
+<td>MySQL</td>
+</tr>
+<tr>
+<td>DBHOST</td>
+<td><a href="http://db.onionz.tk">db.onionz.tk</a> (you can manage with phpmyadmin/adminer here also)</td>
+</tr>
+<tr>
+<td>DBPORT</td>
+<td>3306</td>
+</tr>
+<tr>
+<td>DBNAME</td>
+<td>'.$hostname.'</td>
+</tr>
+<tr>
+<td>DBUSER</td>
+<td>'.$hostname.'</td>
+</tr>
+<tr>
+<td>DBPASS</td>
+<td>'.$dbpass.'</td>
+</tr>
+</tbody>
+</table>
         <h1 id="technical-setup">Technical Setup</h1>
         <h3 id="ssh-access">SSH Access</h3>
         <p>There are two ways.</p>
@@ -1371,7 +1410,7 @@ HiddenServicePort 80 127.0.0.1:81
 </code></pre>
         <p>
           (i.e) uncomment the sites you want to create. Then go over to the
-          <a href="'.$admin.'" target="_blank">Chatterbox</a> and ask @Curious to restart your server. Make sure to give your project codename!
+          <a href="'.$admin.'" target="_blank">Chatterbox</a> and ask @Dasho to restart your server. Make sure to give your project codename!
         </p>
         <h3 id="vanity-urls">Vanity URLS</h3>
         <p><strong>To make a vanity URL</strong></p>
@@ -1424,13 +1463,13 @@ HiddenServicePort 80 127.0.0.1:81
 <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_public_key
 <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> -r /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/authorized_clients
 </code></pre>
-        <p>Finally, you need to restart tor. Ask @Curious to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online</a>. Make sure to include your project codename!</p>
+        <p>Finally, you need to restart tor. Ask @Dasho to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online</a>. Make sure to include your project codename!</p>
         <hr />
         <p>
-          Powered by Curious Hosting (v2) - Contact me if you require help (<a
-            href="mailto:curious@null.net"
-            >curious@null.net</a
-          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Curious">Sonar</a>). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
+          Powered by Dashed Hosting (v2) - Contact me if you require help (<a
+            href="mailto:dasho@null.net"
+            >dasho@null.net</a
+          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
         </p>
       </div>
     </div>
