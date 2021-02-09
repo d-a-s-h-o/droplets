@@ -36,7 +36,7 @@ docker run -p 8081:80 phptor
 ... # other stuff
 : not found: ./setup:
 ```
-All of those `: not found: ./setup:`'s are normal, expected, and even important. They do run a bunch of important commands.
+All of those `: not found: ./setup:`'s are normal. They do still run a bunch of important commands. That said, if they don't show up... that's okay too.
 
 Once that's done, well, congrats.
 ### Your server is live!
