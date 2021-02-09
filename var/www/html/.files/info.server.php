@@ -2,8 +2,12 @@
 $private = trim(file_get_contents('/var/www/dump/files.hostname'));
 $public = trim(file_get_contents('/var/www/html/onion.url'));
 $admin = 'http://cboxkuuxrtulkkxhod2pxo3la25tztcp4cdjmc75wc5airqqliq2srad.onion/';
-$hostname = gethostname(); 
+$dbhost = trim(file_get_contents('/var/www/.dbhost.txt'));
+$dbport = trim(file_get_contents('/var/www/.dbport.txt'));
+$dbname = trim(file_get_contents('/var/www/.dbname.txt'));
+$dbuser = trim(file_get_contents('/var/www/.dbuser.txt'));
 $dbpass = trim(file_get_contents('/var/www/.dbpass.txt'));
+
 
 echo '<html>
   <head>
@@ -1196,6 +1200,7 @@ echo '<html>
               <li><a href="#private-url">Private URL</a></li>
             </ul>
           </li>
+          <li><a href="#db-config">DB Config</a></li>
           <li>
             <a href="#technical-setup">Technical Setup</a>
             <ul>
@@ -1286,8 +1291,8 @@ echo '<html>
           up to you. My advice is do, just in case, but don’t if you’re just
           gonna mess up the server.
         </p>
-        <h1 id="database">Database</h1>
-<p>Your Database details are as follows:</p>
+        <h1 id="db-config">Database Configuration</h1>
+<p>Your database details are as follows:</p>
 
 <table>
 <thead>
@@ -1303,19 +1308,24 @@ echo '<html>
 </tr>
 <tr>
 <td>DBHOST</td>
-<td><a href="http://db.onionz.tk">db.onionz.tk</a> (you can manage with phpmyadmin/adminer here also)</td>
-</tr>
+<td>';
+if($dbhost="db.onionz.tk") {
+  echo '<a href="http://db.onionz.tk" target="_blank">db.onionz.tk</a> (you can manage with phpmyadmin/adminer here also)';
+}else{
+  echo $dbhost;
+}
+echo '</td></tr>
 <tr>
 <td>DBPORT</td>
-<td>3306</td>
+<td>'.$dbport.'</td>
 </tr>
 <tr>
 <td>DBNAME</td>
-<td>'.$hostname.'</td>
+<td>'.$dbname.'</td>
 </tr>
 <tr>
 <td>DBUSER</td>
-<td>'.$hostname.'</td>
+<td>'.$dbuser.'</td>
 </tr>
 <tr>
 <td>DBPASS</td>
@@ -1323,6 +1333,7 @@ echo '<html>
 </tr>
 </tbody>
 </table>
+<p>If you need more, just ask Dasho and he will get you one in no time!</p>
         <h1 id="technical-setup">Technical Setup</h1>
         <h3 id="ssh-access">SSH Access</h3>
         <p>There are two ways.</p>
