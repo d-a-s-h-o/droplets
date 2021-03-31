@@ -1,4 +1,4 @@
-# Curious Hosting
+# Dashed Hosting
 Hello there. This site is hosted by Dashed Hosting - By @Dasho.
 
 It is part of the Onionz Project.
