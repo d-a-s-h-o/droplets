@@ -1309,8 +1309,8 @@ echo '<html>
 <tr>
 <td>DBHOST</td>
 <td>';
-if($dbhost="db.onionz.tk") {
-  echo '<a href="http://db.onionz.tk" target="_blank">db.onionz.tk</a> (you can manage with phpmyadmin/adminer here also)';
+if($dbhost="db.onionz.dev") {
+  echo '<a href="http://db.onionz.dev" target="_blank">db.onionz.dev</a> (you can manage with phpmyadmin/adminer here also)';
 }else{
   echo $dbhost;
 }
@@ -1478,8 +1478,8 @@ HiddenServicePort 80 127.0.0.1:81
         <hr />
         <p>
           Powered by Dashed Hosting (v2) - Contact me if you require help (<a
-            href="mailto:dasho@onionz.tk"
-            >dasho@onionz.tk</a
+            href="mailto:dasho@onionz.dev"
+            >dasho@onionz.dev</a
           > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
         </p>
       </div>
