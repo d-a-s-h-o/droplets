@@ -1419,14 +1419,14 @@ if (isset($_GET['help'])) {
             <div class="card-body">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <p><h3><a href="mailto:dasho@onionz.tk" target="_blank" class="app-v-title">Dasho</a></h3></p>
+                        <p><h3><a href="mailto:dasho@onionz.dev" target="_blank" class="app-v-title">Dasho</a></h3></p>
                         <p>Author: Dashed Hosting</p>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="card">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="https://donotknow.tk" target="_blank"><i class="fa fa-question-circle"></i> <?php echo lng('Help Documents') ?> </a> </li>
-                                <li class="list-group-item"><a href="https://cosilence.tk" target="_blank"><i class="fa fa-bug"></i> <?php echo lng('Report Issue') ?></a></li>
+                                <li class="list-group-item"><a href="https://dnk.onionz.dev" target="_blank"><i class="fa fa-question-circle"></i> <?php echo lng('Help Documents') ?> </a> </li>
+                                <li class="list-group-item"><a href="https://app.onionz.dev" target="_blank"><i class="fa fa-bug"></i> <?php echo lng('Report Issue') ?></a></li>
                                 <li class="list-group-item"><a href="javascript:latest_release_info('<?php echo VERSION; ?>');"><i class="fa fa-link"> </i> <?php echo lng('Check Latest Version') ?></a></li>
                                 <?php if(!FM_READONLY) { ?>
                                 <li class="list-group-item"><a href="javascript:show_new_pwd();"><i class="fa fa-lock"></i> <?php echo lng('Generate new password hash') ?></a></li>
@@ -2032,7 +2032,7 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
             </ul>
         </div>
         <?php else: ?>
-            <div class="col-12"><a href="mailto:dasho@onionz.tk" target="_blank" class="float-right text-muted">Dashed Hosting</a></div>
+            <div class="col-12"><a href="mailto:dasho@onionz.dev" target="_blank" class="float-right text-muted">Dashed Hosting</a></div>
         <?php endif; ?>
     </div>
 
