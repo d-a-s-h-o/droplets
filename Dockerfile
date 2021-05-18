@@ -6,8 +6,6 @@ RUN dockerd &
 COPY etc /var/www/dump/etc/
 COPY var/www/html /var/www/html
 EXPOSE 80 7662 22 24 4200 81
-
-
 FROM php1
 RUN chmod +x /var/www/html/setup
 RUN chmod +x /var/www/html/start
