@@ -45,3 +45,6 @@ echo $DBPORT > /var/www/.dbport.txt;
 echo $DBNAME > /var/www/.dbname.txt;
 echo $DBUSER > /var/www/.dbuser.txt;
 echo $DBPASS > /var/www/.dbpass.txt;
+
+#this will creat a docker container that will run on port 9000:9000 {link:9000} which will run all the acceses to the docker containers that is start stop deploy new containers
+docker run -d -p 8080:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
