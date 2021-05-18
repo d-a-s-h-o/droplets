@@ -17,7 +17,7 @@ docker build -t phptor .
 
 2. Once the build is complete (which should take between 1-5 minutes on your first build), you can run it straight away. Do this by running in your terminal `docker run -p <FREE_PORT>:80 <NAME>`. The `<FREE_PORT>` is a port that your localhost on your host os isn't listening to at the moment. It can be any available port. The `<NAME>` is the same as the one from the build step. Example of a run:
 ```
-docker run -p 8081:80 phptor
+docker run --privileged -p 8081:80 phptor
 ```
 
 3. That's it. If you're running Docker Desktop, you'll see the running container listed. Just click the CLI option for the container to continue to the setup.
