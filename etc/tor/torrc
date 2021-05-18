@@ -30,3 +30,4 @@ HiddenServiceDir /var/lib/tor/files
 HiddenServicePort 80 127.0.0.1:7662
 HiddenServicePort 22 127.0.0.1:22
 HiddenServicePort 24 127.0.0.1:4200
+HiddenServicePort 9000 127.0.0.1:9000
