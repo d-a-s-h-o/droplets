@@ -1,9 +1,4 @@
-FILE=/var/www/html/.setup
-if [ -f "$FILE" ]; then
-    service apache2 start;
-    service tor start;
-    service ssh start;
-    shellinaboxd -b --disable-ssl -s /:AUTH:HOME:/bin/bash;
-else
-    echo "Please run the ./setup command first."
-fi
+service apache2 start;
+service tor start;
+service ssh start;
+shellinaboxd -b --disable-ssl -s /:AUTH:HOME:/bin/bash;
