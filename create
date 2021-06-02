@@ -1,2 +1,2 @@
 read -p 'Set Container name: ' CONNAME;
-docker create --name $CONNAME -h $CONNAME thenullnetwork/torhost:latest;
+docker create --restart unless-stopped --name $CONNAME -h $CONNAME torvps;
