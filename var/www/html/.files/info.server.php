@@ -1,6 +1,6 @@
 <?php
 $private = trim(file_get_contents('/var/www/dump/files.hostname'));
-$public = trim(file_get_contents('/var/www/html/onion.url'));
+$public = trim(file_get_contents('/var/www/html/public.url'));
 $admin = 'http://cboxkuuxrtulkkxhod2pxo3la25tztcp4cdjmc75wc5airqqliq2srad.onion/';
 $dbhost = trim(file_get_contents('/var/www/.dbhost.txt'));
 $dbport = trim(file_get_contents('/var/www/.dbport.txt'));
