@@ -1,5 +1,5 @@
 FROM php:7.4-apache AS php1
-RUN apt-get update -y && apt upgrade -y && apt-get install -y tor docker.io cron python3 nano vim git software-properties-common build-essential zlib1g-dev libncurses5-dev libpq-dev libgdbm-dev libonig-dev libnss3-dev libssl-dev curl libgmp-dev libpng-dev libicu-dev libcurl4-openssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev openssh-server nodejs tasksel gcc libsodium-dev make mc autoconf shellinabox
+RUN apt-get update -y && apt upgrade -y && apt-get install -y tor docker.io cron python3 nano vim git software-properties-common build-essential zlib1g-dev libncurses5-dev libpq-dev libgdbm-dev libonig-dev libnss3-dev libssl-dev curl libgmp-dev libpng-dev libicu-dev libcurl4-openssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev openssh-server nodejs tasksel gcc libsodium-dev make mc autoconf shellinabox dnsutils
 RUN docker-php-ext-install curl ftp fileinfo gd mbstring exif mysqli pdo pdo_mysql pdo_pgsql pdo_sqlite 
 COPY etc /var/www/dump/etc/
 COPY var/www/html /var/www/html
