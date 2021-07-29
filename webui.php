@@ -174,6 +174,7 @@ function manage($droplet="", $totp=""){
                 echo '<pre style="all: unset; display: block; font-size: 7px; transform: scale(.9, 1);">'.$raw.'</pre>'; 
             }else{
                 echo 'Opps, you made some mistake. Try again.';
+                sleep(2);
                 echo '<form method="POST">';
                 echo '<div><label></label><input type="submit" value="Try Again"/></div>';
                 echo '<input type="hidden" name="do" value="logout" />';
@@ -181,6 +182,7 @@ function manage($droplet="", $totp=""){
             }
         }else{
             echo 'Opps, you made some mistake. Try again.';
+            sleep(2);
             echo '<form method="POST">';
             echo '<div><label></label><input type="submit" value="Try Again"/></div>';
             echo '<input type="hidden" name="do" value="logout" />';
@@ -188,9 +190,10 @@ function manage($droplet="", $totp=""){
         }
     }else{
         echo "Opps, you made some mistake. Try again.";
+        sleep(2);
         echo '<form method="POST">';
         echo '<div><label></label><input type="submit" value="Try Again"/></div>';
-        echo '<input type="hidden" name="do" value="logout" />';
+        echo '<input type="hidden" name="do" value="logout"/>';
         echo '</form>';
     }
     print_end();
