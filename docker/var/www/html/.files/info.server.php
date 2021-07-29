@@ -1,7 +1,12 @@
 <?php
+
+
+error_reporting(0);
+ini_set('display_errors', 0);
+$manager = 'https://mgmt.onionz.dev/';
 $private = trim(file_get_contents('/var/www/dump/files.hostname'));
 $public = trim(file_get_contents('/var/www/html/public.url'));
-$admin = 'http://cboxkuuxrtulkkxhod2pxo3la25tztcp4cdjmc75wc5airqqliq2srad.onion/';
+$admin = 'https://chat.onionz.dev/';
 $dbhost = trim(file_get_contents('/var/www/.dbhost.txt'));
 $dbport = trim(file_get_contents('/var/www/.dbport.txt'));
 $dbname = trim(file_get_contents('/var/www/.dbname.txt'));
@@ -13,7 +18,7 @@ echo '<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Server Hosting Information</title>
+    <title>Dashed Droplets | Information</title>
     <link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iNjg1LjAwMDAwMHB0IgogICBoZWlnaHQ9IjY4NS4wMDAwMDBwdCIKICAgdmlld0JveD0iMCAwIDY4NS4wMDAwMDAgNjg1LjAwMDAwMCIKICAgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIKICAgaWQ9InN2ZzI3IgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnMzMSIgLz4KICA8bWV0YWRhdGEKICAgICBpZD0ibWV0YWRhdGEyMSIgLz4KICA8ZwogICAgIGlkPSJsYXllcjEiCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lO29wYWNpdHk6MSI+CiAgICA8ZWxsaXBzZQogICAgICAgc3R5bGU9ImZpbGw6IzM2MzkzZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6I2Q2OGQyMDtzdHJva2Utd2lkdGg6MTYuMDAyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lIgogICAgICAgaWQ9InBhdGg4NDgiCiAgICAgICBjeD0iMzQyLjU0OTEzIgogICAgICAgY3k9IjM0Mi42NTMxNyIKICAgICAgIHJ4PSIzMzQuNTczOTEiCiAgICAgICByeT0iMzM0LjY4OTYxIiAvPgogICAgPGNpcmNsZQogICAgICAgc3R5bGU9ImZpbGw6IzM2MzkzZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6I2Q2OGQyMDtzdHJva2Utd2lkdGg6MTQuNjgyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBpZD0iYmFja2dyb3VuZCIKICAgICAgIGN4PSIzNDIuNjA5NDQiCiAgICAgICBjeT0iMzQyLjUxNDgzIgogICAgICAgcj0iMCIgLz4KICAgIDxjaXJjbGUKICAgICAgIHN0eWxlPSJmaWxsOiNkNjhkMjA7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiNkNjhkMjA7c3Ryb2tlLXdpZHRoOjkuNTk3MDc7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNDAwMSIKICAgICAgIGN4PSIyMTMuNTI3MzQiCiAgICAgICBjeT0iMjI3LjQ0MTQxIgogICAgICAgcj0iMzMuMjA1MzYiIC8+CiAgICA8Y2lyY2xlCiAgICAgICBzdHlsZT0iZmlsbDojZDY4ZDIwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZDY4ZDIwO3N0cm9rZS13aWR0aDo3Ljc0NTQyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBpZD0icGF0aDQwMDMiCiAgICAgICBjeD0iNDQ2LjMyMDMxIgogICAgICAgY3k9IjIyNy45NzY1NiIKICAgICAgIHI9IjM0LjY2NjM1OSIgLz4KICAgIDxyZWN0CiAgICAgICBzdHlsZT0iZmlsbDojZDY4ZDIwO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZDY4ZDIwO3N0cm9rZS13aWR0aDo0LjIzMTtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgaWQ9InJlY3Q0MDI3IgogICAgICAgd2lkdGg9IjQwMC4wMzU5MiIKICAgICAgIGhlaWdodD0iMTYuODY0MDM3IgogICAgICAgeD0iMTM0LjQ1NDciCiAgICAgICB5PSI0NTMuNDA3ODQiIC8+CiAgPC9nPgo8L3N2Zz4K" id="favicon" />
     <style type="text/css">
       @font-face {
@@ -1255,7 +1260,8 @@ echo '<html>
           If you have a vanity URL you wish to use, or you wish to make one, the
           procedure is explained below, as is how to set up multiple sites on
           your server. We do not provide support for vanity v2 addresses at this
-          time.
+          time.<br>
+          <mark>This is the most commonly messed up endeavor on my services. If you start messing with Vanity URLS and do not implement them properly - you will break your access to your server (you will break tor altogether).</mark>
         </p>
         <h2 id="private-url">Private URL</h2>
         <p>
@@ -1334,13 +1340,13 @@ echo '</td></tr>
 </table>
 <p>If you need more, just ask Dasho and he will get you one in no time!</p>
         <h1 id="technical-setup">Technical Setup</h1>
-        <h3 id="ssh-access">SSH Access</h3>
+        <h3 id="ssh-access">SSH Access (The Easy Way)</h3>
         <p>There are two ways.</p>
         <ol>
         <li>Go to <a href="http://'.$private.':24">http://'.$private.':24</a> and login with your credentials; or if that does not work (and it might not)</li>
-        <li>Do the hard method explained below.</li>
+        <li>Do the longer method explained below.</li>
         </ol>
-        <h3 id="ssh-access">SSH Access (The Hard Way)</h3>
+        <h3 id="ssh-access">SSH Access (The Longer Way)</h3>
         <p><strong>Prerequisites</strong></p>
         <pre
           class="language-bash"
@@ -1355,7 +1361,7 @@ echo '</td></tr>
         <pre
           class="language-bash"
         ><code class="prism  language-bash">The authenticity of host <span class="token string">\''.$private.' (x.x.x.x)\'</span> can\'t be established.
-ECDSA key fingerprint is SHA256:ZKwWuURAZp6O5wcSFyswbNigaTSAIP3uf77w6w7lss8.
+ECDSA key fingerprint is SHA256:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
 Are you sure you want to continue connecting <span class="token punctuation">(</span>yes/no/<span class="token punctuation">[</span>fingerprint<span class="token punctuation">]</span><span class="token punctuation">)</span>?</code></pre>
         <p>Type <code>yes</code> and continute to enter your password:</p>
         <pre
@@ -1372,8 +1378,8 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
         </p>
         <p>
           Copy you password hash and go to
-          <code>/var/www/html/.files/</code> via the terminal and run
-          <code>nano config.php</code>. One you do this you will see a
+          <code>/var/www/html/.files/</code> via SSH and run
+          <code>nano config.php</code>. Once you do this you will see a
           configuration file. Go to line 17. You should see this on line 17 to
           19:
         </p>
@@ -1408,20 +1414,7 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
           Enabling Other Hidden Services
         </h3>
         <p>
-          Once again, just SSH into your vps and then edit
-          <code>/etc/tor/torrc/</code> from:
-        </p>
-        <pre><code>#HiddenServiceDir /var/lib/tor/2
-#HiddenServicePort 80 127.0.0.1:81
-</code></pre>
-        <p>to:</p>
-        <pre><code>HiddenServiceDir /var/lib/tor/2
-HiddenServicePort 80 127.0.0.1:81
-</code></pre>
-        <p>
-          (i.e) uncomment the sites you want to create. Then go over to the
-          <a href="'.$admin.'" target="_blank">Chatterbox</a> and ask @Dasho to restart your server. Make sure to give your project codename!
-        </p>
+          Just login to your file manager and create a new root site. You will see that there is already a site <code>0</code>, so just create a folder called <code>1</code> and upload your web files there. You can run <code>cat /var/lib/tor/1/hostname</code> to get the url for this site. You can repeat for sites 0-8, after which you will need to contact me to enable a wider setup scheme.</p>
         <h3 id="vanity-urls">Vanity URLS</h3>
         <p><strong>To make a vanity URL</strong></p>
         <pre
@@ -1463,6 +1456,7 @@ HiddenServicePort 80 127.0.0.1:81
         </blockquote>
         <p>
           <strong>To implement my vanity URL</strong><br />
+          <mark><em>Please run these commands exactly as shown. <strong style="font-size: 36px">DO NOT</strong> try to copy and paste the files over in any other manner or rename stuff or anything. You will mess up the permissions that tor needs to run and you will break tor, and you will make it impossible to get back in without my assistance. I will be reluctant.</em></mark><br />
           Once you have a vanity URL, cd into the directory where it is. That is
           where you find the file named <code>hostname</code>. Then run
         </p>
@@ -1473,13 +1467,13 @@ HiddenServicePort 80 127.0.0.1:81
 <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/hs_ed25519_public_key
 <span class="noselect">$ <span class="token operator">|</span> </span><span class="token function">rm</span> -r /var/lib/tor/<span class="token operator">&lt;</span>SITE<span class="token operator">&gt;</span>/authorized_clients
 </code></pre>
-        <p>Finally, you need to restart tor. Ask @Dasho to do this at <a href="'.$admin.'" target="_blank">Chatterbox. If he\'s offline, just leave him an offline message and he will do it when he\'s back online</a>. Make sure to include your project codename!</p>
+        <p>Finally, you need to restart your server. Do this at the <a href="'.$manager.'" target="_blank">Dashed Droplet Manager</a>. You will need your project_codename and your 2FA Code!</p>
         <hr />
         <p>
-          Powered by Dashed Hosting (v2) - Contact me if you require help (<a
-            href="mailto:dasho@onionz.dev"
-            >dasho@onionz.dev</a
-          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>). I\'m already working on version two with an admin portal where you can turn on/off your server and restart it yourself. You will also have more administration features and more developer tools.
+          Powered by Dashed Droplets (v3) - Contact me if you require help (<a
+            href="mailto:support@onionz.dev"
+            >support@onionz.dev</a
+          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>). I\'m already working on version four with a built in desktop where you can use your server like RDP, through the web (WHAT!). You will also have more administration features and more developer tools.
         </p>
       </div>
     </div>

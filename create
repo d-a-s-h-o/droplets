@@ -1,2 +1,0 @@
-read -p 'Set Container name: ' CONNAME;
-docker create --restart unless-stopped --name $CONNAME -h $CONNAME torvps;

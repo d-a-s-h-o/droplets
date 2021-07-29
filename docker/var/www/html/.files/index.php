@@ -3,10 +3,10 @@
 $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":true,"calc_folder":true}';
 
 //FM version
-define('VERSION', '2.0');
+define('VERSION', '3.0');
 
 //Application Title
-define('APP_TITLE', 'Dashed Hosting - Files');
+define('APP_TITLE', 'Dashed Droplets - Files');
 
 // --- EDIT BELOW CONFIGURATION CAREFULLY ---
 

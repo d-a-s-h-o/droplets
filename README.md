@@ -8,7 +8,7 @@ docker pull thenullnetwork/torhost:latest
 ```
 ---
 
-Getting started is really simple, once your in the folder with the Dockerfile, all you have to do is build, run and setup. Literally three commands.
+Getting started is really simple, once your in the folder with the Dockerfile (the /docker folder), all you have to do is build, run and setup. Literally three commands.
 1. To build the docker image, simply run `docker build -t <NAME> .` in your command line/terminal where the `<NAME>` is any string without a space or special character. For my example, I ran it as:
 ```
 docker build -t torvps .
@@ -42,3 +42,5 @@ Once that's done, well, congrats.
 ### Your server is live!
 Simply follow up with the `cat public.url` command to see your new public onion url (duh). Paste it into the Tor Browser and **follow the instructions that follow**.
 Have fun.
+
+**I will post more information on the G2 Update soon**
