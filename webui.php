@@ -74,6 +74,7 @@ function index(){
 }
 
 function manage($droplet="", $totp=""){
+    global $config;
     include('/* File with list of various droplets and their secrets */');
     print_start();
     $pattern = $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
