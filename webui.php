@@ -33,7 +33,15 @@ route();
 
 function route(){
     global $config;
-    if(!isset($_POST['do'])){
+    if(isset($_GET['hash'])){
+        $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
+        $raw = htmlspecialchars(htmlentities($_GET['hash']));
+       if(preg_match($pattern, $raw)){
+           die(hash('sha512', $raw.$config['salt']));
+       }else{
+           header("Location: ".$config['root']."");
+       }
+    }if(!isset($_POST['do'])){
             if(check_session()){
                 manage($_SESSION['droplet']);
             }else{
@@ -226,6 +234,7 @@ function destroy_session(){
 }
 
 function head(){
+    global $config;
     echo '<head>
     <title>'.$config['siteName'].'</title><link rel="shortcut icon" href="https://cdn.onionz.dev/global/images/favicon.svg" /><style>body {background: #222;color: #eee;font-family: Arial;}form.aligned {display: table;}.aligned div {display: table-row}.aligned label {display: table-cell;padding: 5px;margin: 5px;text-align: right;}.aligned input, select {display: table-cell;padding: 5px;margin: 5px;}.warning {padding: 14px;background-color: #ff0000;color: black;font-weight: bolder;font-size: large;}.info {padding: 14px;background-color: #0c93e4;color: black;font-weight: bolder;font-size: large;}.success {padding: 14px;background-color: #00bb00;color: white;font-weight: bolder;font-size: large;text-align: center;}.rule-breaker {padding: 5px;border: solid red;border-radius: 5px;}select {cursor: pointer; padding: 5px;margin: 5px;}.aligned input[type=submit] {width: 100%} input[type=submit] {color:#eee;background-color: #111;border: solid #eee 1px;border-radius: 5px;cursor: pointer; padding: 5px;margin: 5px;}input[type=submit]:hover {background-color: #000;}</style></head>';
 }

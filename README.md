@@ -11,13 +11,13 @@ docker pull thenullnetwork/torhost:latest
 Getting started is really simple, once your in the folder with the Dockerfile (the /docker folder), all you have to do is build, run and setup. Literally three commands.
 1. To build the docker image, simply run `docker build -t <NAME> .` in your command line/terminal where the `<NAME>` is any string without a space or special character. For my example, I ran it as:
 ```
-docker build -t torvps .
+docker build -t thenullnetwork/torhost:latest .
 ```
 **You must include the `.` and the space before it at the end.**
 
 2. Once the build is complete (which should take between 1-5 minutes on your first build), you can run it straight away. Do this by running in your terminal `docker run -p <FREE_PORT>:80 <NAME>`. The `<FREE_PORT>` is a port that your localhost on your host os isn't listening to at the moment. It can be any available port. The `<NAME>` is the same as the one from the build step. Example of a run:
 ```
-docker run -p 8081:80 torvps
+docker run -p 8081:80 thenullnetwork/torhost:latest
 ```
 
 3. That's it. If you're running Docker Desktop, you'll see the running container listed. Just click the CLI option for the container to continue to the setup.
