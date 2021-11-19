@@ -39,7 +39,7 @@ check () {
 create () {
     docker create --restart unless-stopped --name $container -h $container torvps;
     docker start $container;
-    docker exec -it $container bash;
+    docker exec $container sh ./setup $userid;
     echo "Created "$container
 }
 
@@ -73,6 +73,8 @@ while [ "$1" != "" ]; do
                                 ;;
         -n | --new )            shift
                                 container="$1"
+                                shift
+                                userid="$1"
                                 create
                                 ;;
         -s | --start )          shift
