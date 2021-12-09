@@ -37,28 +37,32 @@ check () {
     fi
 }
 create () {
-    docker create --restart unless-stopped --name $container -h $container torvps;
+    if [ $type == "apache2" ]; then
+        docker create --restart unless-stopped --name $container -h $container apache2
+    else
+        docker create --restart unless-stopped --name $container -h $container ubuntu
+    fi
     docker start $container;
-    docker exec $container sh ./setup $userid;
+    docker exec $container bash ./run.sh;
     echo "Created "$container
 }
 
 start_container () {
-        docker start $container;
-        docker exec $container sh ./start;
-        echo "Started "$container
+    docker start $container;
+    docker exec $container bash ./run.sh;
+    echo "Started "$container
 }
 
 stop_container () {
-        docker stop $container;
-        echo "Stopped "$container
+    docker stop $container;
+    echo "Stopped "$container
 }
 
 restart_container () {
-        docker stop $container;
-        docker start $container;
-        docker exec $container sh ./start;
-        echo "Restarted "$container
+    docker stop $container;
+    docker start $container;
+    docker exec $container bash ./run.sh;
+    echo "Restarted "$container
 }
 
 usage () {
@@ -74,7 +78,7 @@ while [ "$1" != "" ]; do
         -n | --new )            shift
                                 container="$1"
                                 shift
-                                userid="$1"
+                                type="$1"
                                 create
                                 ;;
         -s | --start )          shift

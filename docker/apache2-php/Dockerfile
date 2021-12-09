@@ -6,5 +6,4 @@ COPY var/www/html /var/www/html
 EXPOSE 80 7662 22 24 4200 81 82 83 84 85 86 87 88
 
 FROM php1
-RUN chmod +x /var/www/html/setup.sh
-RUN chmod +x /var/www/html/start.sh
+RUN chmod +x /var/www/html/run.sh

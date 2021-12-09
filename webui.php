@@ -210,7 +210,7 @@ function manage($droplet="", $totp=""){
     print_end();
 }
 
-function act($action){
+function act($action, $type='apache2'){
     if($action === 'Start'){
         $stmt = './app.sh -s '.$_SESSION['droplet'];
         shell_exec($stmt);
@@ -219,6 +219,9 @@ function act($action){
         shell_exec($stmt);
     }elseif($action === 'Restart'){
         $stmt = './app.sh -r '.$_SESSION['droplet'];
+        shell_exec($stmt);
+    }elseif($action === 'Create'){
+        $stmt = './app.sh -n '.$_SESSION['droplet'].' '.$type;
         shell_exec($stmt);
     }else{
         echo 'Bad Action';
