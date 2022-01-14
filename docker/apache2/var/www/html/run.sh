@@ -3,7 +3,7 @@ if [ -f "$FILE" ]; then
     service apache2 start;
     service tor start;
     service ssh start;
-    shellinaboxd -b --disable-ssl -s /:AUTH:HOME:/bin/bash;
+    nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
 else 
     cat /var/www/dump/etc/hosts > /etc/hosts;
     cat /var/www/dump/etc/apache2/ports.conf > /etc/apache2/ports.conf;
@@ -29,7 +29,7 @@ else
     service apache2 reload;
     service ssh start;
     chmod 777 -R /var/www/html;
-    shellinaboxd -b --disable-ssl;
+    mkdir /ssh;
     touch /var/www/dump/user;
     echo "jack:minnty" > /var/www/dump/user;
     echo "root:minnty" >> /var/www/dump/user;
@@ -47,5 +47,6 @@ else
     echo $DBNAME > /var/www/.dbname.txt;
     echo $DBUSER > /var/www/.dbuser.txt;
     echo $DBPASS > /var/www/.dbpass.txt;
-    touch .setup;
+    touch /var/www/html/.setup;
+    nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
 fi

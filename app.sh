@@ -14,12 +14,14 @@ help () {
     echo "This is the CLI tool to manage your Droplets, but works for all docker containers.";
     echo;
     echo "To get started, try any of the following parameters:";
-    echo "     -c | --check <container>         This will tell you if your droplet is running or not."
-    echo "     -s | --start <container>         This will start your droplet - and all it's processes."
-    echo "     -d | --stop <container>          This will turn off your droplet."
-    echo "     -r | --restart <container>       This will restart your droplet and all it's processes."
-    echo "     -n | --new <container>           This will create a new droplet with the name and hostname <container>"
-    echo "     -h | --help                      This displays this help prompt."
+    echo "     -c | --check <container>         This will tell you if your droplet is running or not.";
+    echo "     -s | --start <container>         This will start your droplet - and all it's processes.";
+    echo "     -d | --stop <container>          This will turn off your droplet.";
+    echo "     -r | --restart <container>       This will restart your droplet and all it's processes.";
+    echo "     -n | --new <container> <type>    This will create a new droplet with the name and hostname <container>, and type <type>.";
+    echo "                            [ apache2 | ubuntu ]";
+    echo "     -b | --backup <container>        This will backup your droplet in a snapshot style.";
+    echo "     -h | --help                      This displays this help prompt.";
     echo;
     echo;
     echo;
@@ -43,13 +45,31 @@ create () {
         docker create --restart unless-stopped --name $container -h $container ubuntu
     fi
     docker start $container;
-    docker exec $container bash ./run.sh;
+    docker exec $container ddrun;
     echo "Created "$container
+}
+
+backup () {
+    docker stop $container;
+    test=$( sudo docker images -q onionz/backups:$container );
+    if [[ -n "$test" ]]; then
+        docker rmi onionz/backups:$container;
+        docker commit $container onionz/backups:$container;
+        docker push onionz/backups:$container;
+        docker rmi onionz/backups:$container
+    else
+        docker commit $container onionz/backups:$container;
+        docker push onionz/backups:$container;
+        docker rmi onionz/backups:$container
+    fi
+    docker start $container;
+    docker exec $container ddrun;
+    echo "Backed up "$container
 }
 
 start_container () {
     docker start $container;
-    docker exec $container bash ./run.sh;
+    docker exec $container ddrun;
     echo "Started "$container
 }
 
@@ -61,12 +81,12 @@ stop_container () {
 restart_container () {
     docker stop $container;
     docker start $container;
-    docker exec $container bash ./run.sh;
+    docker exec $container ddrun;
     echo "Restarted "$container
 }
 
 usage () {
-    echo "usage: ./app.sh [[[-c | --check] | [-s | --start] | [-d | --stop] | [-r | --restart]] <container>]  | [-h | --help]]"
+    echo "usage: ./app.sh [[[-c | --check] | [-s | --start] | [-d | --stop] | [-r | --restart] | [-n | --new] | [-b | --backup]] <container> (<type>)?]  | [-h | --help]]"
 }
 
 while [ "$1" != "" ]; do
@@ -92,6 +112,10 @@ while [ "$1" != "" ]; do
         -r | --restart )        shift
                                 container="$1"
                                 restart_container
+                                ;;
+        -b | --backup )         shift
+                                container="$1"
+                                backup
                                 ;;
         -h | --help )           help
                                 exit
