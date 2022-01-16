@@ -40,9 +40,9 @@ check () {
 }
 create () {
     if [ $type == "apache2" ]; then
-        docker create --restart unless-stopped --name $container -h $container apache2
+        docker create --restart unless-stopped --name $container -h $container onionz/apache2:latest
     else
-        docker create --restart unless-stopped --name $container -h $container ubuntu
+        docker create --restart unless-stopped --name $container -h $container onionz/ubuntu:latest
     fi
     docker start $container;
     docker exec $container ddrun;
@@ -54,14 +54,10 @@ backup () {
     test=$( sudo docker images -q onionz/backups:$container );
     if [[ -n "$test" ]]; then
         docker rmi onionz/backups:$container;
-        docker commit $container onionz/backups:$container;
-        docker push onionz/backups:$container;
-        docker rmi onionz/backups:$container
-    else
-        docker commit $container onionz/backups:$container;
-        docker push onionz/backups:$container;
-        docker rmi onionz/backups:$container
     fi
+    docker commit $container onionz/backups:$container;
+    docker push onionz/backups:$container;
+    docker rmi onionz/backups:$container;
     docker start $container;
     docker exec $container ddrun;
     echo "Backed up "$container
@@ -86,7 +82,7 @@ restart_container () {
 }
 
 usage () {
-    echo "usage: ./app.sh [[[-c | --check] | [-s | --start] | [-d | --stop] | [-r | --restart] | [-n | --new] | [-b | --backup]] <container> (<type>)?]  | [-h | --help]]"
+    echo "usage: ddd [[[-c | --check] | [-s | --start] | [-d | --stop] | [-r | --restart] | [-n | --new] | [-b | --backup]] <container> (<type>)?]  | [-h | --help]]"
 }
 
 while [ "$1" != "" ]; do
