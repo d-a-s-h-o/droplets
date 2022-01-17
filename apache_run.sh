@@ -48,5 +48,10 @@ else
     echo $DBUSER > /var/www/.dbuser.txt;
     echo $DBPASS > /var/www/.dbpass.txt;
     touch /var/www/html/.setup;
-    nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
+    echo;
+    echo;
+    cat /var/www/dump/files.hostname
+    echo;
+    echo;
+    nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &    
 fi

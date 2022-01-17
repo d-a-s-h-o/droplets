@@ -2729,9 +2729,9 @@ echo '<html>
     </style>
   </head>
 
-  <body class="chost app--dark">
-    <div class="chost__left">
-      <div class="chost__toc">
+  <body class="dashed app--dark">
+    <div class="dashed__left">
+      <div class="dashed__toc">
         <ul>
           <li>
             <a href="#hello-world">Hello World</a>
@@ -2757,8 +2757,8 @@ echo '<html>
         </ul>
       </div>
     </div>
-    <div class="chost__right">
-      <div class="chost__html">
+    <div class="dashed__right">
+      <div class="dashed__html">
         <h1 id="hello-world">Hello World</h1>
         <p>
           Yo - so you made it this far… good work. Wondering what to do now?

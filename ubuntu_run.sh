@@ -19,5 +19,10 @@ else
     rm /home/jack/user
     echo $(export USERID="$1") >>/etc/environment
     touch /var/dump/var/.setup
+    echo;
+    echo;
+    cat /var/dump/var/ssh.url
+    echo;
+    echo;
     nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
 fi

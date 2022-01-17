@@ -39,13 +39,14 @@ check () {
     fi
 }
 create () {
-    if [ $type == "apache2" ]; then
-        docker create --restart unless-stopped --name $container -h $container onionz/apache2:latest
+    if [ $type == "ubuntu" ]; then
+        docker run --restart unless-stopped -d --name $container -h $container onionz/ubuntu:latest sleep infinity;
+        docker exec $container ddrun;
     else
-        docker create --restart unless-stopped --name $container -h $container onionz/ubuntu:latest
+        docker create --restart unless-stopped --name $container -h $container onionz/apache2:latest;
+        docker start $container;
+        docker exec $container bash ddrun;
     fi
-    docker start $container;
-    docker exec $container ddrun;
     echo "Created "$container
 }
 
@@ -94,7 +95,7 @@ while [ "$1" != "" ]; do
         -n | --new )            shift
                                 container="$1"
                                 shift
-                                type="$1"
+                                type=${1:-"null"}
                                 create
                                 ;;
         -s | --start )          shift

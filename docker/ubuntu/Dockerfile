@@ -10,6 +10,6 @@ RUN wget -O /usr/bin/ddssh https://cdn.onionz.dev/app/ddssh
 EXPOSE 22 4200
 
 FROM ubuntu1
-RUN wget -O /usr/bin/ddrun https://cdn.onionz.dev/app/ubutnu_run.sh?v=1
+RUN wget -O /usr/bin/ddrun https://cdn.onionz.dev/app/ubuntu_run.sh?v=3
 RUN chmod +x /usr/bin/ddrun
 RUN chmod +x /usr/bin/ddssh
