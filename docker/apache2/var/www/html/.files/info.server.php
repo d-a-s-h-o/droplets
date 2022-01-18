@@ -2497,9 +2497,9 @@ echo '<html>
   }
 
   blockquote {
-      color: rgba(0, 0, 0, 0.5);
+      color: #00C79A;
       padding-left: 1.5em;
-      border-left: 5px solid rgba(0, 0, 0, 0.1);
+      border-left: 5px solid #00C79A;
   }
 
   .app--dark .layout__panel--editor blockquote,
@@ -2777,7 +2777,7 @@ echo '<html>
           </li>
         </ol>
         <p>
-          <mark>Warning:</mark>
+          <mark> Warning: </mark>
           <strong
             >You <u>must</u> enable javascript for this manager. As it is on
             your own server space you can trust it. Do not alter the torrc
@@ -2797,7 +2797,7 @@ echo '<html>
           procedure is explained below, as is how to set up multiple sites on
           your server. We do not provide support for vanity v2 addresses at this
           time.<br>
-          <mark>This is the most commonly messed up endeavor on my services. If you start messing with Vanity URLS and do not implement them properly - you will break your access to your server (you will break tor altogether).</mark>
+          <mark> This is the most commonly messed up endeavor on my services. If you start messing with Vanity URLS and do not implement them properly - you will break your access to your server (you will break tor altogether). </mark>
         </p>
         <h2 id="private-url">Private URL</h2>
         <p>
@@ -2811,8 +2811,8 @@ echo '<html>
         </ul>
         <p>
           <mark
-            >As such, you should keep this URL private. Do not share it with
-            others, except people who need them (collaborators, etc.)</mark
+            > As such, you should keep this URL private. Do not share it with
+            others, except people who need them (collaborators, etc.) </mark
           >
         </p>
         <p>
@@ -2942,9 +2942,9 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
 &lt;Enter_Hard_To_Guess_Easy_To_Remember_Password_That_You_Want_To_Use&gt;
 </code></pre>
         <p>
-          And that’s it. <mark><strong>DO NOT</strong> use the</mark>
+          And that’s it. <mark> <strong>DO NOT</strong> use the </mark>
           <code>usermod -l &lt;NEW_USERNAME&gt; jack</code>
-          <mark>command. It wont work with my setup.</mark>
+          <mark> command. It wont work with my setup. </mark>
         </p>
         <h3 id="enabling-other-hidden-services">
           Enabling Other Hidden Services
@@ -2992,7 +2992,7 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
         </blockquote>
         <p>
           <strong>To implement my vanity URL</strong><br />
-          <mark><em>Please run these commands exactly as shown. <strong style="font-size: 36px">DO NOT</strong> try to copy and paste the files over in any other manner or rename stuff or anything. You will mess up the permissions that tor needs to run and you will break tor, and you will make it impossible to get back in without my assistance. I will be reluctant.</em></mark><br />
+          <mark> <em>Please run these commands exactly as shown. <strong>DO NOT</strong> try to copy and paste the files over in any other manner or rename stuff or anything. You will mess up the permissions that tor needs to run and you will break tor, and you will make it impossible to get back in without my assistance. I will be reluctant.</em> </mark><br />
           Once you have a vanity URL, cd into the directory where it is. That is
           where you find the file named <code>hostname</code>. Then run
         </p>

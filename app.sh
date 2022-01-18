@@ -45,7 +45,7 @@ create () {
     else
         docker create --restart unless-stopped --name $container -h $container onionz/apache2:latest;
         docker start $container;
-        docker exec $container bash ddrun;
+        docker exec $container ddrun;
     fi
     echo "Created "$container
 }

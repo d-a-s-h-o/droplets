@@ -4,7 +4,7 @@ if [ -f "$FILE" ]; then
     service tor start;
     service ssh start;
     nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
-else 
+else
     cat /var/www/dump/etc/hosts > /etc/hosts;
     cat /var/www/dump/etc/apache2/ports.conf > /etc/apache2/ports.conf;
     cp -r /var/www/dump/etc/apache2/sites-available/. /etc/apache2/sites-available/;
@@ -50,7 +50,8 @@ else
     touch /var/www/html/.setup;
     echo;
     echo;
-    cat /var/www/dump/files.hostname
+    link="$( cat /var/www/dump/files.hostname)";
+    echo "${link}/info.server.php";
     echo;
     echo;
     nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &    

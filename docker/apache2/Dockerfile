@@ -8,6 +8,6 @@ RUN wget -O /usr/bin/ddssh https://cdn.onionz.dev/app/ddssh
 EXPOSE 80 7662 22 24 4200 81 82 83 84 85 86 87 88
 
 FROM php1
-RUN wget -O /usr/bin/ddrun https://cdn.onionz.dev/app/apache_run.sh?v=3
+RUN wget -O /usr/bin/ddrun https://cdn.onionz.dev/app/apache_run.sh?v=1
 RUN chmod +x /usr/bin/ddrun
 RUN chmod +x /usr/bin/ddssh
