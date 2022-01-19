@@ -34,7 +34,7 @@ route();
 function route(){
     global $config;
     if(isset($_GET['hash'])){
-        $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
+        $pattern = '/^([a-zA-Z0-9]{1,})(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?$/';
         $raw = htmlspecialchars(htmlentities($_GET['hash']));
        if(preg_match($pattern, $raw)){
            die(hash('sha512', $raw.$config['salt']));
@@ -85,7 +85,7 @@ function manage($droplet="", $totp=""){
     global $config;
     include('/* File with list of various droplets and their secrets */');
     print_start();
-    $pattern = $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
+    $pattern = '/^([a-zA-Z0-9]{1,})(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?$/';
     if(preg_match($pattern, $droplet)){
         if(isset($S[hash('sha512', $droplet.$config['salt'])])){
             $stmt = 'echo "'.$S[hash('sha512', $droplet.$config['salt'])].'" | ./totp.sh';

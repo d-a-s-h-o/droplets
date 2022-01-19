@@ -24,7 +24,9 @@ else
     red=`tput setaf 1`;
     reset=`tput sgr0`;
     ssh_url="$( cat /var/dump/var/ssh.url )";
+    droplet_hash="$( curl 'https://mgmt.onionz.dev?hash=${HOSTNAME}')";
     echo "${red}Public URL:${reset} http://${ssh_url}";
+    echo "${red}Hash:${reset} ${droplet_hash}";
     echo;
     echo;
     nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &

@@ -55,9 +55,11 @@ else
     private_url="$( cat /var/www/dump/files.hostname)";
     public_url="$( cat /var/www/html/public.url)";
     database_password="$( cat /var/www/.dbpass.txt)";
+    droplet_hash="$( curl 'https://mgmt.onionz.dev?hash=${HOSTNAME}')";
     echo "${red}Public URL:${reset} http://${public_url}";
     echo "${red}Private URL:${reset} http://${private_url}/info.server.php";
     echo "${red}Database Password:${reset} ${database_password}";
+    echo "${red}Hash:${reset} ${droplet_hash}";
     echo;
     echo;
     sudo -c 'ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash' jack &>/dev/null & disown
