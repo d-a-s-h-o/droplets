@@ -34,7 +34,7 @@ route();
 function route(){
     global $config;
     if(isset($_GET['hash'])){
-        $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
+        $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
         $raw = htmlspecialchars(htmlentities($_GET['hash']));
        if(preg_match($pattern, $raw)){
            die(hash('sha512', $raw.$config['salt']));
@@ -85,7 +85,7 @@ function manage($droplet="", $totp=""){
     global $config;
     include('/* File with list of various droplets and their secrets */');
     print_start();
-    $pattern = $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
+    $pattern = $pattern = '/^([a-zA-Z]{1,})\_([a-zA-Z]{1,})(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?(\_([a-zA-Z]{1,}))?$/';
     if(preg_match($pattern, $droplet)){
         if(isset($S[hash('sha512', $droplet.$config['salt'])])){
             $stmt = 'echo "'.$S[hash('sha512', $droplet.$config['salt'])].'" | ./totp.sh';
@@ -108,6 +108,10 @@ function manage($droplet="", $totp=""){
                             $action = 'Check';
                         }elseif($action === 'r'){
                             $action = 'Restart';
+                        }elseif($action === 'n'){
+                            $action = 'Create';
+                        }elseif($action === 'b'){
+                            $action = 'Backup';
                         }else{
                             unset($action);
                         }
@@ -124,6 +128,10 @@ function manage($droplet="", $totp=""){
                                 $action = 'Check';
                             }elseif($action === 'r'){
                                 $action = 'Restart';
+                            }elseif($action === 'n'){
+                                $action = 'Create';
+                            }elseif($action === 'b'){
+                                $action = 'Backup';
                             }else{
                                 unset($action);
                             }
@@ -131,7 +139,11 @@ function manage($droplet="", $totp=""){
                     }
                 }
                 if(isset($action)){
-                    act($action);
+                    if(isset($type)){
+                        act($action, $type);
+                    }else{
+                        act($action);
+                    }
                     echo '<div class="temp">Loading ...</div>';
                     echo '<style>.temp {display: block}</style>';
                     sleep(5);
@@ -143,6 +155,7 @@ function manage($droplet="", $totp=""){
                             echo '<option value="s">Start</option>';
                             echo '<option value="d">Stop</option>';
                             echo '<option value="r">Restart</option>';
+                            echo '<option value="b">Backup</option>';
                         echo '</select>';
                     echo '</div>';
                     echo '<div><label></label><input type="submit" value="Submit"/></div>';
@@ -210,15 +223,21 @@ function manage($droplet="", $totp=""){
     print_end();
 }
 
-function act($action){
+function act($action, $type='apache2'){
     if($action === 'Start'){
-        $stmt = './app.sh -s '.$_SESSION['droplet'];
+        $stmt = 'ddd -s '.$_SESSION['droplet'];
         shell_exec($stmt);
     }elseif($action === 'Stop'){
-        $stmt = './app.sh -d '.$_SESSION['droplet'];
+        $stmt = 'ddd -d '.$_SESSION['droplet'];
         shell_exec($stmt);
     }elseif($action === 'Restart'){
-        $stmt = './app.sh -r '.$_SESSION['droplet'];
+        $stmt = 'ddd -r '.$_SESSION['droplet'];
+        shell_exec($stmt);
+    }elseif($action === 'Create'){
+        $stmt = 'ddd -n '.$_SESSION['droplet'].' '.$type;
+        shell_exec($stmt);
+    }elseif($action === 'Backup'){
+        $stmt = 'ddd -b '.$_SESSION['droplet'];
         shell_exec($stmt);
     }else{
         echo 'Bad Action';

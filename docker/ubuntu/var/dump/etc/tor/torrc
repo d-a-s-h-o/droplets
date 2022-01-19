@@ -1,0 +1,10 @@
+# HiddenServiceDir /var/lib/tor/0
+# HiddenServicePort 80 127.0.0.1:80
+
+
+########################################
+
+#Do Not Touch This
+HiddenServiceDir /var/lib/tor/ssh
+HiddenServicePort 22 127.0.0.1:22
+HiddenServicePort 24 127.0.0.1:4200
