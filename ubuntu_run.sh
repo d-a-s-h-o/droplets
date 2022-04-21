@@ -2,7 +2,7 @@ FILE=/var/dump/var/.setup
 if [ -f "$FILE" ]; then
     service tor start
     service ssh start
-    nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
+    sudo -c 'ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash' jack &>/dev/null & disown
 else
     cat /var/dump/etc/tor/torrc >/etc/tor/torrc
     service tor start
@@ -29,5 +29,5 @@ else
     echo "${red}Hash:${reset} ${droplet_hash}";
     echo;
     echo;
-    nohup ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash &
+    sudo -c 'ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash' jack &>/dev/null & disown
 fi
