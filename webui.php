@@ -3,13 +3,13 @@ $config = [
 	'enabled' => 1, /* 0=FALSE, 1=TRUE */
 
 	'siteName' => 'Dashed Droplet Manager', /* The name for the site */
-	'root' => 'https://mgmt.onionz.dev', /* The base url for the site (including http(s):// protocol) */
+	'root' => 'https://mgmt.sokka.io', /* The base url for the site (including http(s):// protocol) */
 
 	'proMode' => 1, /* 0=FALSE, 1=TRUE */
 
-	'copyRightName' => 'Dasho <dasho@onionz.dev>', /* Copyright Notice */
+	'copyRightName' => 'Dasho <dasho@sokka.io>', /* Copyright Notice */
 
-    'salt' => '/* Removed for Safety */', /* Make hash cracking more challenging */
+    'pepper' => '/* Removed for Safety */', /* Make hash cracking more challenging */
 
 ];
 
@@ -34,10 +34,10 @@ route();
 function route(){
     global $config;
     if(isset($_GET['hash'])){
-        $pattern = '/^([a-zA-Z0-9]{1,})(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?$/';
+        $pattern = '/^([a-zA-Z0-9]{1,})(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?$/';
         $raw = htmlspecialchars(htmlentities($_GET['hash']));
        if(preg_match($pattern, $raw)){
-           die(hash('sha512', $raw.$config['salt']));
+           die(hash('sha512', $raw.$config['pepper']));
        }else{
            header("Location: ".$config['root']."");
        }
@@ -87,8 +87,8 @@ function manage($droplet="", $totp=""){
     print_start();
     $pattern = '/^([a-zA-Z0-9]{1,})(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?(\_([a-zA-Z0-9]{1,}))?$/';
     if(preg_match($pattern, $droplet)){
-        if(isset($S[hash('sha512', $droplet.$config['salt'])])){
-            $stmt = 'echo "'.$S[hash('sha512', $droplet.$config['salt'])].'" | ./totp.sh';
+        if(isset($S[hash('sha512', $droplet.$config['pepper'])])){
+            $stmt = 'echo "'.$S[hash('sha512', $droplet.$config['pepper'])].'" | ./totp.sh';
             $run = trim(strval(shell_exec($stmt)));
             $totp = trim(strval($totp));
             if($totp == $run || check_session()){
@@ -182,7 +182,7 @@ function manage($droplet="", $totp=""){
                 include('qr/qrlib.php');
 
                 // text output  
-                $codeContents = 'otpauth://totp/'.$droplet.'?secret='.$S[hash('sha512', $droplet.$config['salt'])].'&issuer=Dashed%20Droplets';
+                $codeContents = 'otpauth://totp/'.$droplet.'?secret='.$S[hash('sha512', $droplet.$config['pepper'])].'&issuer=Dashed%20Droplets';
                 
                 // generating
                 $text = QRcode::text($codeContents);
@@ -223,7 +223,7 @@ function manage($droplet="", $totp=""){
     print_end();
 }
 
-function act($action, $type='apache2'){
+function act($action, $type='web'){
     if($action === 'Start'){
         $stmt = 'ddd -s '.$_SESSION['droplet'];
         shell_exec($stmt);

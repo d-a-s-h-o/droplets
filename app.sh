@@ -19,7 +19,9 @@ help () {
     echo "     -d | --stop <container>          This will turn off your droplet.";
     echo "     -r | --restart <container>       This will restart your droplet and all it's processes.";
     echo "     -n | --new <container> <type>    This will create a new droplet with the name and hostname <container>, and type <type>.";
-    echo "                            [ apache2 | ubuntu ]";
+    echo "                            [ web | ubuntu ]";
+    echo "     -i | --ips                       This will list all containers and their corresponding ip addressess (local network only).";
+    echo "    -ip | --ip <container>            This will return the ip address of a specific droplet."
     echo "     -b | --backup <container>        This will backup your droplet in a snapshot style.";
     echo "     -h | --help                      This displays this help prompt.";
     echo;
@@ -39,26 +41,24 @@ check () {
     fi
 }
 create () {
-    if [ $type == "ubuntu" ]; then
-        docker run --restart unless-stopped -d --name $container -h $container onionz/ubuntu:latest sleep infinity;
-        docker exec $container ddrun;
-    else
-        docker create --restart unless-stopped -d --name $container -h $container onionz/apache2:latest;
-        docker start $container;
+    if [ $type == "web" ]; then
+        docker run -d --restart unless-stopped --name $container -h $container itsokka/web:latest sleep infinity;
         docker exec $container bash ddrun;
-    fi
+    else
+        docker run -d --restart unless-stopped --name $container -h $container itsokka/ubuntu:latest sleep infinity;
+        docker exec $container bash ddrun;
     echo "Created "$container
 }
 
 backup () {
     docker stop $container;
-    test=$( sudo docker images -q onionz/backups:$container );
+    test=$( sudo docker images -q itsokka/backups:$container );
     if [[ -n "$test" ]]; then
-        docker rmi onionz/backups:$container;
+        docker rmi itsokka/backups:$container;
     fi
-    docker commit $container onionz/backups:$container;
-    docker push onionz/backups:$container;
-    docker rmi onionz/backups:$container;
+    docker commit $container itsokka/backups:$container;
+    docker push itsokka/backups:$container;
+    docker rmi itsokka/backups:$container;
     docker start $container;
     docker exec -d $container bash ddrun;
     echo "Backed up "$container
@@ -82,8 +82,16 @@ restart_container () {
     echo "Restarted "$container
 }
 
+list_ips () {
+    docker ps | awk 'NR>1{ print $1 }' | xargs docker inspect -f '{{range .NetworkSettings.Networks}}{{$.Name}}{{" "}}{{.IPAddress}}{{end}}';
+}
+
+list_ip () {
+    docker inspect -f '{{ .NetworkSettings.IPAddress }}' $container;
+}
+
 usage () {
-    echo "usage: ddd [[[-c | --check] | [-s | --start] | [-d | --stop] | [-r | --restart] | [-n | --new] | [-b | --backup]] <container> (<type>)?]  | [-h | --help]]"
+    echo "usage: ddd [[[-c | --check] | [-s | --start] | [-d | --stop] | [-r | --restart] | [-n | --new] | [-b | --backup] | [-ip | --ip]] <container> (<type>)?]  | [-i | --ips] | [-h | --help]]"
 }
 
 while [ "$1" != "" ]; do
@@ -113,6 +121,13 @@ while [ "$1" != "" ]; do
         -b | --backup )         shift
                                 container="$1"
                                 backup
+                                ;;
+        -i | --ips  )           shift
+                                list_ips
+                                ;;
+        -ip | --ip  )           shift
+                                container="$1"
+                                list_ip
                                 ;;
         -h | --help )           help
                                 exit

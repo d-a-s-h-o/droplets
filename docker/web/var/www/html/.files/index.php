@@ -1419,14 +1419,14 @@ if (isset($_GET['help'])) {
             <div class="card-body">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <p><h3><a href="mailto:dasho@onionz.dev" target="_blank" class="app-v-title">Dasho</a></h3></p>
-                        <p>Author: Dashed Hosting</p>
+                        <p><h3><a href="mailto:dasho@sokka.io" target="_blank" class="app-v-title">Dasho</a></h3></p>
+                        <p>Author: Dashed Droplets</p>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="card">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="https://dnk.onionz.dev" target="_blank"><i class="fa fa-question-circle"></i> <?php echo lng('Help Documents') ?> </a> </li>
-                                <li class="list-group-item"><a href="https://app.onionz.dev" target="_blank"><i class="fa fa-bug"></i> <?php echo lng('Report Issue') ?></a></li>
+                                <li class="list-group-item"><a href="https://docs.sokka.io" target="_blank"><i class="fa fa-question-circle"></i> <?php echo lng('Help Documents') ?> </a> </li>
+                                <li class="list-group-item"><a href="https://hub.sokka.io" target="_blank"><i class="fa fa-bug"></i> <?php echo lng('Report Issue') ?></a></li>
                                 <li class="list-group-item"><a href="javascript:latest_release_info('<?php echo VERSION; ?>');"><i class="fa fa-link"> </i> <?php echo lng('Check Latest Version') ?></a></li>
                                 <?php if(!FM_READONLY) { ?>
                                 <li class="list-group-item"><a href="javascript:show_new_pwd();"><i class="fa fa-lock"></i> <?php echo lng('Generate new password hash') ?></a></li>
@@ -2032,7 +2032,7 @@ $tableTheme = (FM_THEME == "dark") ? "text-white bg-dark table-dark" : "bg-white
             </ul>
         </div>
         <?php else: ?>
-            <div class="col-12"><a href="mailto:dasho@onionz.dev" target="_blank" class="float-right text-muted">Dashed Hosting</a></div>
+            <div class="col-12"><a href="mailto:dasho@sokka.io" target="_blank" class="float-right text-muted">Dashed Droplets</a></div>
         <?php endif; ?>
     </div>
 
@@ -3194,7 +3194,7 @@ class FM_Zipper_Tar
         if (strlen($CONFIG)) {
             $data = fm_object_to_array(json_decode($CONFIG));
         } else {
-            $msg = 'Dashed Hosting | File Manager<br>Error: Cannot load configuration';
+            $msg = 'Dashed Droplets | File Manager<br>Error: Cannot load configuration';
             if (substr($fm_url, -1) == '/') {
                 $fm_url = rtrim($fm_url, '/');
                 $msg .= '<br>';
@@ -3352,7 +3352,7 @@ global $lang, $root_url, $favicon_path;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Web based file manager for Dashed Hosting, Manage your files efficiently and easily with this file manager">
+    <meta name="description" content="Web based file manager for Dashed Droplets (part of The Sokka Project), Manage your files efficiently and easily with this file manager">
     <meta name="author" content="CCP Programmers">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex">
@@ -3424,7 +3424,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Web based file manager for Dashed Hosting, Manage your files efficiently and easily with this file manager">
+    <meta name="description" content="Web based file manager for Dashed Droplets (part of The Sokka Project), Manage your files efficiently and easily with this file manager">
     <meta name="author" content="CCP Programmers">
     <meta name="robots" content="noindex, nofollow">
     <meta name="googlebot" content="noindex">
@@ -3955,7 +3955,7 @@ function lng($txt) {
     global $lang;
 
     // English Language
-    $tr['en']['AppName']        = 'Dashed Hosting';           $tr['en']['AppTitle']           = 'Dashed Hosting';
+    $tr['en']['AppName']        = 'Dashed Droplets';           $tr['en']['AppTitle']           = 'Dashed Droplets';
     $tr['en']['Login']          = 'Sign in';                $tr['en']['Username']           = 'Username';
     $tr['en']['Password']       = 'Password';               $tr['en']['Logout']             = 'Sign Out';
     $tr['en']['Move']           = 'Move';                   $tr['en']['Copy']               = 'Copy';

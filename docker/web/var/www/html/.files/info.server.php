@@ -3,10 +3,10 @@
 
 error_reporting(0);
 ini_set('display_errors', 0);
-$manager = 'https://mgmt.onionz.dev/';
+$manager = 'https://mgmt.sokka.io/';
 $private = trim(file_get_contents('/var/www/dump/files.hostname'));
 $public = trim(file_get_contents('/var/www/html/public.url'));
-$admin = 'https://chat.onionz.dev/';
+$admin = 'https://chat.sokka.io/';
 $dbhost = trim(file_get_contents('/var/www/.dbhost.txt'));
 $dbport = trim(file_get_contents('/var/www/.dbport.txt'));
 $dbname = trim(file_get_contents('/var/www/.dbname.txt'));
@@ -2726,6 +2726,10 @@ echo '<html>
       border: solid red;
       border-radius: 5px;
   }
+
+  .noselect {
+      user-select: none;
+  }
     </style>
   </head>
 
@@ -2850,8 +2854,8 @@ echo '<html>
 <tr>
 <td>DBHOST</td>
 <td>';
-if($dbhost="db.onionz.dev") {
-  echo '<a href="http://db.onionz.dev" target="_blank">db.onionz.dev</a> (you can manage with phpmyadmin/adminer here also)';
+if($dbhost="db.sokka.io") {
+  echo '<a href="https://db.sokka.io" target="_blank">db.sokka.io</a> (you can manage with phpmyadmin/adminer here also)';
 }else{
   echo $dbhost;
 }
@@ -3006,10 +3010,10 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
         <p>Finally, you need to restart your server. Do this at the <a href="'.$manager.'" target="_blank">Dashed Droplet Manager</a>. You will need your project_codename and your 2FA Code!</p>
         <hr />
         <p>
-          Powered by Dashed Droplets (v3) - Contact me if you require help (<a
-            href="mailto:support@onionz.dev"
-            >support@onionz.dev</a
-          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>). I\'m already working on version four with a built in desktop where you can use your server like RDP, through the web (WHAT!). You will also have more administration features and more developer tools.
+          Powered by Dashed Droplets (v4) - Contact me if you require help (<a
+            href="mailto:support@sokka.io"
+            >support@sokka.io</a
+          > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>).
         </p>
       </div>
     </div>

@@ -5,9 +5,9 @@ Dashed Droplets is a Docker solution to set up a native PHP web-hosting over tor
 ---
 **You can pull the Docker image (pre-built), and skip to step 2, with:**
 ```
-docker pull onionz/apache2
+docker pull itsokka/web
 ```
-You can also do the same for our simple ubuntu image: `docker pull onionz/ubuntu`.
+You can also do the same for our simple ubuntu image: `docker pull itsokka/ubuntu`.
 
 ---
 

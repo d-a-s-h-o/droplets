@@ -1,0 +1,184 @@
+server {
+    listen 80 default_server;
+    root /var/www/html/.files/sites/0;
+    index index.php index.html index.htm;
+    server_name 0.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/1;
+    index index.php index.html index.htm;
+    server_name 1.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/2;
+    index index.php index.html index.htm;
+    server_name 2.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/3;
+    index index.php index.html index.htm;
+    server_name 3.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/4;
+    index index.php index.html index.htm;
+    server_name 4.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/5;
+    index index.php index.html index.htm;
+    server_name 5.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/6;
+    index index.php index.html index.htm;
+    server_name 6.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/7;
+    index index.php index.html index.htm;
+    server_name 7.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+server {
+    listen 80;
+    root /var/www/html/.files/sites/8;
+    index index.php index.html index.htm;
+    server_name 8.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+# Do not edit below this line
+
+server {
+    listen 80;
+    root /var/www/html/.files/;
+    index index.php index.html index.htm;
+    server_name files.site;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+}
+
+
+
+
+
+## To Add More ##
+# server {
+#     listen 80;
+#     root /var/www/html/.files/sites/n; # n
+#     index index.php index.html index.htm;
+#     server_name n.site; # n
+
+#     location / {
+#         try_files $uri $uri/ =404;
+#     }
+
+#     location ~ \.php$ {
+#         include snippets/fastcgi-php.conf;
+#         fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+#     }
+# }
+
+## Where "n" is the number of your site ##
