@@ -76,5 +76,11 @@ class Randomizer
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
     }
+
+    // generate a totp secret
+    public static function totpSecret()
+    {
+        return base64_encode(Randomizer::string(16));
+    }
 }
 ?>

@@ -1,135 +1,46 @@
 <?php
 
-class User
-{
-    public $id;
-    public $username;
-    public $password;
-    public $email;
-    public $droplet;
-    public $totp;
-    public $admin;
-    public $active;
-    public $created;
-    public $salt;
-    public $updated;
-    public $lastlogin;
-
-    public function __construct($id, $username, $password, $email, $droplet, $totp, $admin, $active, $created, $updated, $lastlogin)
-    {
-        $this->id = $id;
-        $this->username = $username;
-        $this->password = $password;
-        $this->email = $email;
-        $this->droplet = $droplet;
-        $this->totp = $totp;
-        $this->admin = $admin;
-        $this->active = $active;
-        $this->created = $created;
-        $this->updated = $updated;
-        $this->lastlogin = $lastlogin;
-        $this->salt = Randomizer::salt(8);
+function register_user($username="admin", $password="admin", $email=null, $adminkey=null){
+    global $config, $db;
+    // check if username is already taken
+    $stmt = $db->prepare("SELECT * FROM users WHERE username = :username");
+    $stmt->bindParam(':username', $username);
+    $result = $stmt->execute();
+    $result = $result->fetchArray(PDO::FETCH_ASSOC);
+    if($result){
+        return "Username already taken";
     }
-
-    public static function all()
-    {
-        global $db;
-        $list = [];
-        $req = $db->query('SELECT * FROM users');
-
-        // we create a list of User objects from the database results
-        foreach ($req->fetchArray() as $user) {
-            $list[] = new User($user['id'], $user['username'], $user['password'], $user['email'], $user['droplet'], $user['totp'], $user['admin'], $user['active'], $user['created'], $user['updated'], $user['lastlogin']);
-        }
-
-        return $list;
+    // check if email is already taken
+    $stmt = $db->prepare("SELECT * FROM users WHERE email = :email");
+    $stmt->bindParam(':email', $email);
+    $result = $stmt->execute();
+    $result = $result->fetchArray(PDO::FETCH_ASSOC);
+    if($result){
+        return "Email already taken";
     }
-
-    public static function find($username)
-    {
-        global $db;
-
-        $stmt = $db->prepare('SELECT * FROM users WHERE username = :username');
-        $stmt->bindValue(':username', $username);
-        $req = $stmt->execute();
-        $user = $req->fetchArray();
-
-        return new User($user['id'], $user['username'], $user['password'], $user['email'], $user['droplet'], $user['totp'], $user['admin'], $user['active'], $user['created'], $user['updated'], $user['lastlogin']);
+    // check if adminkey is correct
+    if($adminkey === $config['adminkey']){
+        $admin = TRUE;
+    }else{
+        $admin = FALSE;
     }
-
-    // function to login a user
-    public static function login($username, $password)
-    {
-        global $config, $db;
-        // check if the user exists
-        $stmt = $db->prepare('SELECT * FROM users WHERE username = :username');
-        $stmt->bindValue(':username', $username);
-        $result = $stmt->execute();
-        $user = $result->fetchArray();
-        if (!$user) {
-            return false;
-        }
-        // check if the password is correct
-        if (password_verify($password, $user['password'])) {
-            // password is correct
-            // check if the user is active
-            if ($user['active'] == 1) {
-                // user is active
-                // check if the user has 2FA enabled
-                if ($user['totp'] == 1) {
-                    // user has 2FA enabled
-                    // check if the user has a valid 2FA token
-                    if (isset($_SESSION['2fa'])) {
-                        // user has a valid 2FA token
-                        // check if the token is valid
-                        if (verify_totp($_SESSION['2fa'], $user['droplet'])) {
-                            // token is valid
-                            // update the lastlogin timestamp
-                            $req = $db->prepare('UPDATE users SET lastlogin = :lastlogin WHERE username = :username');
-                            $req->execute(array(
-                                'username' => $username,
-                                'lastlogin' => time(),
-                            ));
-                            // set the session variables
-                            $_SESSION['username'] = $user['username'];
-                            $_SESSION['admin'] = $user['admin'];
-                            $_SESSION['adminkey'] = $config['adminkey'];
-                            $_SESSION['droplet'] = $user['droplet'];
-                            $_SESSION['2fa'] = null;
-                            return true;
-                        } else {
-                            // token is invalid
-                            return false;
-                        }
-                    } else {
-                        // user does not have a valid 2FA token
-                        return false;
-                    }
-                } else {
-                    // user does not have 2FA enabled
-                    // update the lastlogin timestamp
-                    $req = $db->prepare('UPDATE users SET lastlogin = :lastlogin WHERE username = :username');
-                    $req->execute(array(
-                        'username' => $username,
-                        'lastlogin' => time(),
-                    ));
-                    // set the session variables
-                    $_SESSION['username'] = $user['username'];
-                    $_SESSION['admin'] = $user['admin'];
-                    $_SESSION['adminkey'] = $config['adminkey'];
-                    $_SESSION['droplet'] = $user['droplet'];
-                    $_SESSION['2fa'] = null;
-                    return true;
-                }
-            } else {
-                // user is not active
-                return false;
-            }
-        } else {
-            // password is incorrect
-            return false;
-        }
-    }
+    // hash password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    // generate totp secret
+    $totp = new Randomizer();
+    $totp_secret = $totp->totpSecret();
+    // generate droplet
+    $droplet = generate_droplet();
+    // insert user into database
+    $stmt = $db->prepare("INSERT INTO users (username, password, email, admin, totp_secret, droplet) VALUES (:username, :password, :email, :admin, :totp_secret, :droplet)");
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $password);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':admin', $admin);
+    $stmt->bindParam(':totp_secret', $totp_secret);
+    $stmt->bindParam(':droplet', $droplet);
+    $stmt->execute();
+    return "User registered";
 }
 
 // function to login a user
@@ -258,3 +169,9 @@ function verify_totp($user, $totp){
     }
 }
 
+function generate_droplet(){
+    global $config;
+    $stmt = 'ddrun -n '.$config['droplet']['name'];
+    $run = trim(strval(shell_exec($stmt)));
+    return $run;
+}

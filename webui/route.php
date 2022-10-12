@@ -14,6 +14,7 @@ function route(){
     // split the route into an array
     $route = explode("/", $route);
     // check if the route is empty
+    echo $route[0];
     if(empty($route[0])){
         index();
     }elseif($route[0]==='manage'){
@@ -25,6 +26,18 @@ function route(){
             }
         }else{
             header("Location: /");
+        }
+    }elseif($route[1]==='register'){
+        if(isset($_POST['username']) & isset($_POST['password']) & isset($_POST['email'])){
+            register_user(htmlspecialchars(htmlentities($_POST['username'])), htmlspecialchars(htmlentities($_POST['password'])), htmlspecialchars(htmlentities($_POST['email'])));
+        }else{
+            register_page();
+        }
+    }elseif($route[0]==='login'){
+        if(isset($_POST['username']) & isset($_POST['password'])){
+            login_user(htmlspecialchars(htmlentities($_POST['username'])), htmlspecialchars(htmlentities($_POST['password'])));
+        }else{
+            index();
         }
     }elseif($route[0]==='admin'){
         // check if user is admin
