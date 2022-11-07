@@ -163,9 +163,11 @@ def generate_secret():
 def generate_qr(secret, name):
     return pyqrcode.create(f"otpauth://totp/{name}?secret={secret}&issuer=Dashed%20Droplets")
 
-temp_secret = generate_secret()
-temp_totp = generate_totp(temp_secret)
-print(temp_secret)
-print(temp_totp)
-print(generate_qr(temp_secret, "test").terminal())
-print(generate_qr(temp_secret, "test").svg("test.svg", scale=1))
+main()
+
+# temp_secret = generate_secret()
+# temp_totp = generate_totp(temp_secret)
+# print(temp_secret)
+# print(temp_totp)
+# print(generate_qr(temp_secret, "test").terminal())
+# print(generate_qr(temp_secret, "test").svg("test.svg", scale=1))
