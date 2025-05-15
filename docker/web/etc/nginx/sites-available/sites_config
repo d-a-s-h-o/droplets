@@ -15,7 +15,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 81 default_server;
     root /var/www/html/.files/sites/1;
     index index.php index.html index.htm;
     server_name 1.site;
@@ -31,7 +31,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 82 default_server;
     root /var/www/html/.files/sites/2;
     index index.php index.html index.htm;
     server_name 2.site;
@@ -47,7 +47,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 83 default_server;
     root /var/www/html/.files/sites/3;
     index index.php index.html index.htm;
     server_name 3.site;
@@ -63,7 +63,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 84 default_server;
     root /var/www/html/.files/sites/4;
     index index.php index.html index.htm;
     server_name 4.site;
@@ -79,7 +79,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 85 default_server;
     root /var/www/html/.files/sites/5;
     index index.php index.html index.htm;
     server_name 5.site;
@@ -95,7 +95,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 86 default_server;
     root /var/www/html/.files/sites/6;
     index index.php index.html index.htm;
     server_name 6.site;
@@ -111,7 +111,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 87 default_server;
     root /var/www/html/.files/sites/7;
     index index.php index.html index.htm;
     server_name 7.site;
@@ -127,7 +127,7 @@ server {
 }
 
 server {
-    listen 80;
+    listen 88 default_server;
     root /var/www/html/.files/sites/8;
     index index.php index.html index.htm;
     server_name 8.site;
@@ -145,7 +145,7 @@ server {
 # Do not edit below this line
 
 server {
-    listen 80;
+    listen 8080 default_server;
     root /var/www/html/.files/;
     index index.php index.html index.htm;
     server_name files.site;

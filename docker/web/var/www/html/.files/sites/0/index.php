@@ -16,6 +16,6 @@ a {
 </style>
 </head><body>';
 echo "<h1 style=\"text-align:center;\">Hello World.</h1><br><p>Wondering what to do now? Go to <a href=\"http://".$file."/info.server.php\" target=\"_blank\">".$file."</a>, and read the server info page. Have fun.</p>";
-echo "<p>Powered by Dashed Droplets (v4) - Contact me for help either at <a href=\"mailto:support@sokka.io\">support@sokka.io</a> or on <a href=\"http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho\">Sonar</a>.</p></body></html>";
+echo "<p>Powered by Dashed Droplets (v4) - Contact me for help either at <a href=\"mailto:support@dasho.dev\">support@dasho.dev</a> or on <a href=\"http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho\">Sonar</a>.</p></body></html>";
 
 ?>

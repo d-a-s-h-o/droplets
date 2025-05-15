@@ -1,16 +1,34 @@
 FILE=/var/dump/hosting/.setup
 if [ -f "$FILE" ]; then
+    echo "Already setup";
+    echo;
+    service php7.4-fpm start;
     service nginx start;
     service tor start;
     service ssh start;
     sudo -c 'ddssh -w --title-format "Dashed Droplets" -c jack:minnty -p 4200 bash' jack &>/dev/null & disown
 else
+    echo "Setting up the server";
+    echo;
+    echo "Starting services";
+    service php7.4-fpm start;
+    echo "Copying config files";
     cat /var/dump/etc/hosts > /etc/hosts;
     cp -r /var/dump/etc/nginx/sites-available/. /etc/nginx/sites-available/;
+    rm -rf /etc/nginx/sites-available/default | true;
+    rm -rf /etc/nginx/sites-enabled/default | true;
     ln -s /etc/nginx/sites-available/sites_config /etc/nginx/sites-enabled/sites_config;
     service nginx restart;
     cat /var/dump/etc/tor/torrc > /etc/tor/torrc;
     service tor start;
+    echo "Making directories";
+    mkdir -p /var/www/html/;
+    mkdir -p /var/www/html/.files;
+    mkdir -p /var/www/html/.files/sites;
+    mkdir -p /var/www/html/.files/sites/.vanity-urls;
+    mkdir -p /var/dump/;
+    mkdir -p /var/dump/hosting;
+    echo "Copying files";
     touch /var/www/html/public.url;
     touch /var/www/html/private.url;
     touch /var/dump/files.hostname;
@@ -18,9 +36,13 @@ else
     cat /var/lib/tor/files/hostname > /var/www/html/private.url;
     cat /var/lib/tor/files/hostname > /var/dump/files.hostname;
     git clone https://github.com/cathugger/mkp224o.git /var/www/html/.files/.vanity-urls;
+    echo "Setting up user";
     useradd jack;
     usermod -d /var/www/html/.files/sites jack;
     usermod -s /bin/bash jack;
+    echo "jack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers;
+    echo "root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers;
+    echo "Starting SSH";
     service ssh start;
     chmod 777 -R /var/www/html;
     mkdir /ssh;
@@ -49,7 +71,8 @@ else
     private_url="$( cat /var/dump/files.hostname)";
     public_url="$( cat /var/www/html/public.url)";
     database_password="$( cat /var/dump/.dbpass.txt)";
-    droplet_hash="$( curl 'https://mgmt.sokka.io?hash=${HOSTNAME}')";
+    # droplet_hash="$( curl 'https://droplet.dasho.dev?hash=${HOSTNAME}')";
+    droplet_hash="TESTING";
     echo "${red}Public URL:${reset} http://${public_url}";
     echo "${red}Private URL:${reset} http://${private_url}/info.server.php";
     echo "${red}Database Password:${reset} ${database_password}";

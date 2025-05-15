@@ -3,10 +3,10 @@
 
 error_reporting(0);
 ini_set('display_errors', 0);
-$manager = 'https://mgmt.sokka.io/';
-$private = trim(file_get_contents('/var/www/dump/files.hostname'));
+$manager = 'https://mgmt.dasho.io/';
+$private = trim(file_get_contents('/var/dump/files.hostname'));
 $public = trim(file_get_contents('/var/www/html/public.url'));
-$admin = 'https://chat.sokka.io/';
+$admin = 'https://dasho.dev/';
 $dbhost = trim(file_get_contents('/var/www/.dbhost.txt'));
 $dbport = trim(file_get_contents('/var/www/.dbport.txt'));
 $dbname = trim(file_get_contents('/var/www/.dbname.txt'));
@@ -2854,8 +2854,8 @@ echo '<html>
 <tr>
 <td>DBHOST</td>
 <td>';
-if($dbhost="db.sokka.io") {
-  echo '<a href="https://db.sokka.io" target="_blank">db.sokka.io</a> (you can manage with phpmyadmin/adminer here also)';
+if($dbhost="db.dasho.dev") {
+  echo '<a href="https://db.dasho.dev" target="_blank">db.dasho.dev</a> (you can manage with phpmyadmin/adminer here also)';
 }else{
   echo $dbhost;
 }
@@ -3011,8 +3011,8 @@ Are you sure you want to continue connecting <span class="token punctuation">(</
         <hr />
         <p>
           Powered by Dashed Droplets (v4) - Contact me if you require help (<a
-            href="mailto:support@sokka.io"
-            >support@sokka.io</a
+            href="mailto:support@dasho.dev"
+            >support@dasho.dev</a
           > or <a href="http://sonarmsng5vzwqezlvtu2iiwwdn3dxkhotftikhowpfjuzg7p3ca5eid.onion/contact/Dasho">Sonar</a>).
         </p>
       </div>

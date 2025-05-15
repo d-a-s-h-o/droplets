@@ -1,35 +1,35 @@
 HiddenServiceDir /var/lib/tor/0
-HiddenServicePort 80 0.site
+HiddenServicePort 80 127.0.0.1:80
 
 HiddenServiceDir /var/lib/tor/1
-HiddenServicePort 80 1.site
+HiddenServicePort 80 127.0.0.1:81
 
 HiddenServiceDir /var/lib/tor/2
-HiddenServicePort 80 2.site
+HiddenServicePort 80 127.0.0.1:82
 
 HiddenServiceDir /var/lib/tor/3
-HiddenServicePort 80 3.site
+HiddenServicePort 80 127.0.0.1:83
 
 HiddenServiceDir /var/lib/tor/4
-HiddenServicePort 80 4.site
+HiddenServicePort 80 127.0.0.1:84
 
 HiddenServiceDir /var/lib/tor/5
-HiddenServicePort 80 5.site
+HiddenServicePort 80 127.0.0.1:85
 
 HiddenServiceDir /var/lib/tor/6
-HiddenServicePort 80 6.site
+HiddenServicePort 80 127.0.0.1:86
 
 HiddenServiceDir /var/lib/tor/7
-HiddenServicePort 80 7.site
+HiddenServicePort 80 127.0.0.1:87
 
 HiddenServiceDir /var/lib/tor/8
-HiddenServicePort 80 8.site
+HiddenServicePort 80 127.0.0.1:88
 
 
 ########################################
 
 #Do Not Touch This
 HiddenServiceDir /var/lib/tor/files
-HiddenServicePort 80 files.site
+HiddenServicePort 80 127.0.0.1:8080
 HiddenServicePort 22 127.0.0.1:22
 HiddenServicePort 24 127.0.0.1:4200

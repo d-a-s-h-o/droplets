@@ -1,13 +1,16 @@
 # Dashed Droplets
+
+> ⚠️ This is currently under-development... I apologise for the slightly broken quality (it still works though, I checked.)
+
 Dashed Droplets is a Docker solution to set up a native PHP web-hosting suite that can work over clearnet and tor, with native compatibility for other setups also, like NodeJS and Python3. It automates the building of your server effectively meaning you only have to write three commands to get going. You can allocate your time and energy on building your website rather than worrying about the server side of it all. It has now been expanded to also allow control of practically any docker container you like so... that's nice.
 
 
 ---
 **You can pull the Docker image (pre-built), and skip to step 2, with:**
 ```
-docker pull itsokka/web
+docker pull ghcr.io/d-a-s-h-o/droplets/web:latest
 ```
-You can also do the same for our simple ubuntu image: `docker pull itsokka/ubuntu`.
+You can also do the same for our simple ubuntu image: `docker pull ghcr.io/d-a-s-h-o/droplets/ubuntu:latest`.
 
 ---
 
@@ -20,10 +23,10 @@ Then alias the app.py file to your path:
 ```
 cp /host/app.py /usr/bin/ddd && chmod +x /usr/bin/ddd
 ```
-Getting started is really simple, once your in the folder with the Dockerfile (the /docker/(web | ubuntu) folder), all you have to do is build and run your image. Literally three commands.
+Getting started is really simple, once your in the folder with the Dockerfile (the docker/(web | ubuntu) folder), all you have to do is build and run your image. Literally three commands.
 1. To build the docker image, simply run `docker build -t <NAME> .` in your command line/terminal where the `<NAME>` is any string without a space or special character. For my example, I ran it as:
 ```
-cd /host/docker/web && docker build -t web .
+cd docker/web && docker build -t web .
 ```
 **You must include the `.` and the space before it at the end.**
 
